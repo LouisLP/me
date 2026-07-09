@@ -1,5 +1,9 @@
 # CLAUDE.md
 
+## Project
+
+A minimal single-page portfolio (Vue 3 + Vite SPA) for Louis LP, aimed at Design Engineer roles. The site's own craft (motion, typography, polish) is the portfolio piece. Before building or changing anything user-facing, read `CONTEXT.md`: it holds the purpose, page anatomy, motion doctrine, voice, and recorded decisions.
+
 ## Agent skills
 
 ### Issue tracker

@@ -1,42 +1,17 @@
 # me
 
-This template should help get you started developing with Vue 3 in Vite.
+My personal site: a single-page portfolio at [louislp.github.io/me](https://louislp.github.io/me).
 
-## Recommended IDE Setup
+I spent years as a video editor and motion designer before moving into frontend development. This site is where the two meet: one small, carefully built page where the design and motion work happens in the browser instead of a timeline. The site itself is meant to be the portfolio piece.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Built with Vue 3, Vite, and TypeScript. No component library, no CSS framework; the design system is hand-rolled in [src/styles](src/styles). The full picture of what the site is meant to become lives in [CONTEXT.md](CONTEXT.md).
 
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+## Development
 
 ```sh
 pnpm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-pnpm dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-pnpm build
+pnpm dev          # dev server with HMR
+pnpm type-check   # vue-tsc
+pnpm build        # type-check + production build
+pnpm preview      # serve the production build locally
 ```
