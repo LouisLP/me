@@ -1,23 +1,10 @@
 <template>
   <div class="bio">
     <p>
-      I started in video: editing, motion graphics, the long nights of
-      nudging keyframes until a cut finally breathed. Years of that leave
-      you with strong opinions about timing, and a habit of noticing the
-      half-second where an experience wins or loses someone.
+      I'm a software engineer with a frontend focus, currently building a robotics IDE at Agile Robots in Munich (and plotting a return to Berlin in October). Before writing code professionally, I spent several years as a senior video editor and motion designer in the esports industry. Eventually I wanted to build the things I was designing, so I went back to school and finished a Computer Science degree at UBC.
     </p>
     <p>
-      About two years ago I moved to building interfaces full-time.
-      Frontend work turned out to be the same discipline in a different
-      medium: hierarchy, rhythm, restraint, and a thousand small decisions
-      nobody should ever have to notice. The difference is that here, the
-      audience can touch the work.
-    </p>
-    <p>
-      Design engineer is the first job title I've seen that describes both
-      halves at once. I care about the seam where a designer's intent
-      becomes a running interface, and I like owning that seam end to end.
-      This site is my working example.
+      The mix between creative and technical skills shapes how I work. This tends to put me in the space between design and engineering teams. Day to day that means TypeScript and Vue (with React increasingly in the rotation), design systems, and a lot of opinions about visual hierarchy that I picked up long before I knew what a component library was.
     </p>
   </div>
 </template>
@@ -31,12 +18,7 @@
 }
 
 .bio p {
-  color: var(--color-text-secondary);
-  line-height: var(--line-height-relaxed);
-}
-
-/* The opening line carries the section — let it read a shade stronger */
-.bio p:first-child {
   color: var(--color-text-primary);
+  line-height: var(--line-height-relaxed);
 }
 </style>
