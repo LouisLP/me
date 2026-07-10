@@ -14,12 +14,12 @@ Hiring managers and design engineers deciding whether to interview Louis. Assume
 
 ## Page anatomy
 
-One page, no router. Top to bottom:
+One page, no router. A sticky left rail (wordmark, anchor nav with scroll-spy, status line, theme toggle) beside a content column; the rail compresses to a header block on mobile. Top to bottom:
 
-1. **Hero.** The name "Louis LP" plus a short role framing. This is also the `<title>`.
-2. **The arc, in one paragraph.** A single tight paragraph telling the story: video editor, motion designer, frontend developer, design engineer. Stated once, plainly. The site's behavior does the rest of the arguing.
-3. **Selected projects.** Three to five hand-picked pieces. Each entry is a title, a one-sentence framing, and a link out (GitHub or live site). Data lives in a simple typed array in the repo. No CMS, no GitHub API fetching. Curation over completeness.
-4. **Contact.** GitHub, LinkedIn, email. Links out, nothing clever.
+1. **Hero: the business card.** The central element. A large card with name, role, a two-line snapshot, and contact links; it tilts gently toward a fine pointer. A brief snapshot, not the full story.
+2. **About.** The first navigable section: an extended bio of a few short paragraphs telling the arc (video editor, motion designer, frontend developer, design engineer) and what design engineering means to Louis.
+3. **Selected projects.** Three to five hand-picked pieces as tall cards. Each card draws an example design vignette inside itself (CSS/SVG built from semantic tokens), with title, framing, and mono meta below. Cards are showcases, not links; a small "view source" link appears only when a project has one. Data lives in a simple typed array in the repo. No CMS, no GitHub API fetching.
+4. **Footer: the kaki band.** Full-bleed brand-colored footer, ink on persimmon: "Last updated" (build date) on the left, a dark note card in the center (a few warm lines ending in a mailto), "Currently: city + live local time" on the right, then large sticker-like icon tiles (email, LinkedIn, GitHub) and a one-line colophon. This is the contact section.
 
 There is deliberately no showreel, video archive, or "past life" gallery. The motion-design history is proven by how the site moves, not by hosting old video work.
 
