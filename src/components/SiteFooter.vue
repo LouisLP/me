@@ -42,7 +42,9 @@ onUnmounted(() => clearInterval(timer))
 
 <template>
   <footer id="contact" class="footer">
-    <h2 class="visually-hidden">Contact</h2>
+    <h2 class="visually-hidden">
+      Contact
+    </h2>
     <div class="inner">
       <div class="top">
         <p class="stamp">
@@ -51,9 +53,15 @@ onUnmounted(() => clearInterval(timer))
         </p>
 
         <div class="note">
-          <p class="note-label">Note from Louis</p>
-          <p class="note-line">Hi, thanks for scrolling all the way down.</p>
-          <p class="note-line">I think interfaces deserve the same care as a final cut.</p>
+          <p class="note-label">
+            Note from Louis
+          </p>
+          <p class="note-line">
+            Hi, thanks for scrolling all the way down.
+          </p>
+          <p class="note-line">
+            I think interfaces deserve the same care as a final cut.
+          </p>
           <p class="note-line">
             If something here stayed with you,
             <a :href="`mailto:${profile.email}`">say hello</a>.
@@ -211,9 +219,15 @@ onUnmounted(() => clearInterval(timer))
 }
 
 /* Tiles sit slightly askew, like stickers; they settle when touched */
-li:nth-child(3n + 1) .tile { rotate: -2deg; }
-li:nth-child(3n + 2) .tile { rotate: 1.5deg; }
-li:nth-child(3n) .tile { rotate: -1deg; }
+li:nth-child(3n + 1) .tile {
+  rotate: -2deg;
+}
+li:nth-child(3n + 2) .tile {
+  rotate: 1.5deg;
+}
+li:nth-child(3n) .tile {
+  rotate: -1deg;
+}
 
 .tile:hover {
   background-color: oklch(from var(--color-text-on-accent) l c h / 0.08);
