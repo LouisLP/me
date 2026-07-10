@@ -141,4 +141,28 @@ const { theme, toggle } = useTheme()
 .theme-toggle:hover {
   color: var(--color-text-primary);
 }
+
+/* Below the two-column breakpoint the rail is a compact header block */
+@media (max-width: 799px) {
+  .rail {
+    gap: var(--space-md);
+  }
+
+  .links {
+    flex-direction: row;
+    gap: var(--space-lg);
+  }
+
+  .link::before {
+    display: none;
+  }
+
+  .meta {
+    flex-direction: row;
+    gap: var(--space-md);
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
 </style>
