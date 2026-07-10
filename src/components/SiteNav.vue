@@ -18,20 +18,15 @@ const { theme, toggle } = useTheme()
       <h1 class="wordmark">
         {{ profile.name }}<span class="dot">.</span>
       </h1>
-
-      <p class="status">
-        <!-- Lines ordered left to right so odd/even alternates symmetrically -->
-        <svg class="status-rays" viewBox="0 0 120 40" aria-hidden="true">
-          <line x1="31" y1="36.2" x2="25.2" y2="34.7" />
-          <line x1="37" y1="24.7" x2="27.8" y2="17" />
-          <line x1="47.3" y1="16.8" x2="44.8" y2="11.4" />
-          <line x1="60" y1="14" x2="60" y2="2" />
-          <line x1="72.7" y1="16.8" x2="75.2" y2="11.4" />
-          <line x1="83" y1="24.7" x2="92.2" y2="17" />
-          <line x1="89" y1="36.2" x2="94.8" y2="34.7" />
-        </svg>
-        <span class="status-text">Open to Design Engineer roles</span>
-      </p>
+      <div
+        type="button"
+        class="theme-toggle"
+        :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+        @click="toggle"
+      >
+        <IconSun v-if="theme === 'dark'" />
+        <IconMoon v-else />
+      </div>
     </div>
 
     <nav aria-label="Sections">
@@ -46,15 +41,19 @@ const { theme, toggle } = useTheme()
       </ul>
     </nav>
 
-    <button
-      type="button"
-      class="theme-toggle"
-      :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
-      @click="toggle"
-    >
-      <IconSun v-if="theme === 'dark'" />
-      <IconMoon v-else />
-    </button>
+    <p class="status">
+      <!-- Lines ordered left to right so odd/even alternates symmetrically -->
+      <svg class="status-rays" viewBox="0 0 120 40" aria-hidden="true">
+        <line x1="31" y1="36.2" x2="25.2" y2="34.7" />
+        <line x1="37" y1="24.7" x2="27.8" y2="17" />
+        <line x1="47.3" y1="16.8" x2="44.8" y2="11.4" />
+        <line x1="60" y1="14" x2="60" y2="2" />
+        <line x1="72.7" y1="16.8" x2="75.2" y2="11.4" />
+        <line x1="83" y1="24.7" x2="92.2" y2="17" />
+        <line x1="89" y1="36.2" x2="94.8" y2="34.7" />
+      </svg>
+      <span class="status-text">Open to Design Engineer roles</span>
+    </p>
   </div>
 </template>
 
@@ -122,9 +121,8 @@ const { theme, toggle } = useTheme()
 
 .identity {
   display: flex;
-  flex-direction: column;
   gap: var(--space-sm);
-  align-items: flex-start;
+  align-items: center;
 }
 
 /* Old-timey ad emphasis: rays radiating over the announcement.
@@ -134,6 +132,9 @@ const { theme, toggle } = useTheme()
   flex-direction: column;
   align-items: center;
   max-width: 9.5rem;
+  border: var(--border-width-thin) dashed var(--color-border-default);
+  border-radius: var(--radius-lg);
+  padding-block: var(--space-sm);
 }
 
 .status-rays {
@@ -164,19 +165,14 @@ const { theme, toggle } = useTheme()
 /* A proper control: bordered, round, anchored at the rail's bottom */
 .theme-toggle {
   display: grid;
-  align-self: flex-start;
+  align-self: flex-end;
   width: 2.25rem;
   height: 2.25rem;
   margin-top: auto;
-  border: var(--border-width-thin) solid var(--color-border-default);
-  border-radius: var(--radius-full);
   background: none;
   color: var(--color-text-muted);
   cursor: pointer;
   place-items: center;
-  transition:
-    color var(--duration-fast) var(--ease-out),
-    border-color var(--duration-fast) var(--ease-out);
 }
 
 .theme-toggle svg {
@@ -185,7 +181,6 @@ const { theme, toggle } = useTheme()
 }
 
 .theme-toggle:hover {
-  border-color: var(--color-text-muted);
   color: var(--color-text-primary);
 }
 
