@@ -61,6 +61,8 @@
   /* ------------------------------------------------------------------ */
   --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
   --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Menlo, monospace;
+  /* Self-hosted via @fontsource-variable/bricolage-grotesque (imported in main.ts) */
+  --font-display: 'Bricolage Grotesque Variable', var(--font-sans);
 
   /* Size scale — md is the body default; xl and up are fluid (320–1280px viewport) */
   --font-size-xs: 0.75rem;

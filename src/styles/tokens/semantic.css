@@ -85,7 +85,7 @@
   /* Typography roles                                                    */
   /* ------------------------------------------------------------------ */
   --font-body: var(--font-sans);
-  --font-heading: var(--font-sans);
+  --font-heading: var(--font-display);
   --font-code: var(--font-mono);
 
   /* ------------------------------------------------------------------ */
