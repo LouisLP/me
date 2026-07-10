@@ -82,6 +82,18 @@
   --color-success-subtle-fg: light-dark(var(--seiji-800), var(--seiji-300));
 
   /* ------------------------------------------------------------------ */
+  /* Brand band + inverse surface — the footer: a full-bleed kaki band   */
+  /* with sumi ink on it, and a near-black note card that stays dark in  */
+  /* both themes                                                         */
+  /* ------------------------------------------------------------------ */
+  --color-bg-brand: light-dark(var(--kaki-600), var(--kaki-500));
+  --color-bg-inverse: var(--sumi-950);
+  --color-text-on-inverse: var(--sumi-100);
+  --color-text-on-inverse-muted: var(--sumi-400);
+  --color-border-on-inverse: var(--sumi-700);
+  --color-accent-on-inverse: var(--kaki-300);
+
+  /* ------------------------------------------------------------------ */
   /* Typography roles                                                    */
   /* ------------------------------------------------------------------ */
   --font-body: var(--font-sans);
