@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import BioSection from '@/components/BioSection.vue'
 import BusinessCard from '@/components/BusinessCard.vue'
-import ProjectList from '@/components/ProjectList.vue'
+import ProjectCard from '@/components/ProjectCard.vue'
+import SiteFooter from '@/components/SiteFooter.vue'
 import SiteNav from '@/components/SiteNav.vue'
 import { useScrollSpy } from '@/composables/useScrollSpy'
-import { profile } from '@/content/profile'
 import { projects } from '@/content/projects'
 
 const sections = [
@@ -22,39 +23,29 @@ const { activeId } = useScrollSpy(sections.map(section => section.id))
     </header>
 
     <main class="content">
+      <section class="hero" aria-label="Introduction">
+        <BusinessCard />
+      </section>
+
       <section id="about" class="section">
-        <h2 class="visually-hidden">
+        <h2 class="section-title">
           About
         </h2>
-        <BusinessCard />
+        <BioSection />
       </section>
 
       <section id="projects" class="section">
         <h2 class="section-title">
           Selected projects
         </h2>
-        <ProjectList :projects="projects" />
+        <div class="cards">
+          <ProjectCard v-for="project in projects" :key="project.title" :project="project" />
+        </div>
       </section>
-
-      <section id="contact" class="section">
-        <h2 class="section-title">
-          Say hello
-        </h2>
-        <p class="contact-note">
-          The fastest way to reach me is email.
-        </p>
-        <a class="contact-email" :href="`mailto:${profile.email}`">{{ profile.email }}</a>
-        <p class="contact-links">
-          <a :href="profile.github" target="_blank" rel="noopener">GitHub</a>
-          <a :href="profile.linkedin" target="_blank" rel="noopener">LinkedIn</a>
-        </p>
-      </section>
-
-      <footer class="colophon">
-        <p>This site is the portfolio piece; <a :href="profile.repo" target="_blank" rel="noopener">read the source</a>.</p>
-      </footer>
     </main>
   </div>
+
+  <SiteFooter />
 </template>
 
 <style scoped>
@@ -96,35 +87,9 @@ const { activeId } = useScrollSpy(sections.map(section => section.id))
   font-weight: var(--font-weight-semibold);
 }
 
-.contact-note {
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-sm);
-}
-
-.contact-email {
-  display: inline-block;
-  margin-top: var(--space-md);
-  font-family: var(--font-heading);
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-medium);
-  letter-spacing: var(--letter-spacing-tight);
-}
-
-.contact-links {
+.cards {
   display: flex;
-  gap: var(--space-lg);
-  margin-top: var(--space-lg);
-}
-
-.contact-links a {
-  font-family: var(--font-code);
-  font-size: var(--font-size-xs);
-}
-
-.colophon {
-  padding-top: var(--space-lg);
-  border-top: var(--border-width-thin) solid var(--color-border-subtle);
-  color: var(--color-text-muted);
-  font-size: var(--font-size-xs);
+  flex-direction: column;
+  gap: var(--space-xl);
 }
 </style>
