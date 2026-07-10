@@ -19,6 +19,8 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^9.1.0",
+    "@iconify-json/lucide": "^1.2.116",
+    "@iconify-json/simple-icons": "^1.2.89",
     "@tsconfig/node24": "^24.0.4",
     "@types/node": "^24.13.2",
     "@vitejs/plugin-vue": "^6.0.7",
@@ -27,6 +29,7 @@
     "eslint-plugin-format": "^2.0.1",
     "npm-run-all2": "^9.0.2",
     "typescript": "~6.0.0",
+    "unplugin-icons": "^23.0.1",
     "vite": "^8.0.16",
     "vite-plugin-vue-devtools": "^8.1.2",
     "vue-tsc": "^3.3.5"

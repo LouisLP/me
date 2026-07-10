@@ -1,6 +1,7 @@
 import { fileURLToPath, URL } from 'node:url'
 
 import vue from '@vitejs/plugin-vue'
+import Icons from 'unplugin-icons/vite'
 import { defineConfig } from 'vite'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
@@ -13,6 +14,8 @@ export default defineConfig({
   plugins: [
     vue(),
     vueDevTools(),
+    // Iconify icons compiled in at build time — import from ~icons/<set>/<name>
+    Icons({ compiler: 'vue3' }),
   ],
   resolve: {
     alias: {

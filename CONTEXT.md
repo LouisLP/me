@@ -50,4 +50,5 @@ Two rules about it:
 - **Hosting: GitHub Pages, project path.** The site serves from `louislp.github.io/me`. Setting up deployment will require `base: '/me/'` in `vite.config.ts`.
 - **No router.** One page. Anchor links at most.
 - **Project data in the repo.** A typed array, edited by hand. Curation is the feature.
+- **Icons via unplugin-icons (Iconify).** Imported as components from `~icons/<set>/<name>` and compiled into the bundle; no runtime icon fetching, no hand-pasted SVG paths. Lucide for generic glyphs, Simple Icons for brands.
 - **Docs split.** `README.md` is the short human-facing intro (the repo is public and recruiters may read it), this file holds the vision, and `CLAUDE.md` stays thin with pointers. Substantial architecture decisions from here on should start `docs/adr/`.
