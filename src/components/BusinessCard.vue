@@ -21,10 +21,8 @@ const { transform, onPointerMove, onPointerLeave } = useCardTilt()
     </header>
 
     <p class="card-bio">
-      I spent years making video move: editing, grading, animating type.
-      These days I build interfaces, where the same instincts (timing,
-      rhythm, hierarchy) get rendered by a browser instead of a timeline.
-      Design engineering is where the two halves meet.
+      Video editor and motion designer turned frontend developer.
+      I build interfaces with the same care as a final cut.
     </p>
 
     <footer class="card-links">
@@ -39,13 +37,13 @@ const { transform, onPointerMove, onPointerLeave } = useCardTilt()
 .card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
-  max-width: 34rem;
-  padding: var(--space-xl);
+  gap: var(--space-xl);
+  max-width: 42rem;
+  padding: var(--space-2xl);
   border: var(--border-width-thin) solid var(--color-border-default);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   background-color: var(--color-bg-surface);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
   transform: v-bind(transform);
   transition:
     transform var(--duration-normal) var(--ease-out),
@@ -53,7 +51,7 @@ const { transform, onPointerMove, onPointerLeave } = useCardTilt()
 }
 
 .card:hover {
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
 }
 
 .card-head {
@@ -66,7 +64,7 @@ const { transform, onPointerMove, onPointerLeave } = useCardTilt()
 
 .card-name {
   font-family: var(--font-heading);
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-semibold);
   letter-spacing: var(--letter-spacing-tight);
   line-height: var(--line-height-tight);
@@ -86,7 +84,7 @@ const { transform, onPointerMove, onPointerLeave } = useCardTilt()
 
 .card-bio {
   color: var(--color-text-secondary);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-md);
   line-height: var(--line-height-relaxed);
 }
 
