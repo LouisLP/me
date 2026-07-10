@@ -77,6 +77,8 @@ const { activeId } = useScrollSpy(sections.map(section => section.id))
   .rail {
     position: sticky;
     top: var(--space-section);
+    /* Full viewport column so the rail's last item can anchor to the bottom */
+    height: calc(100dvh - 2 * var(--space-section));
   }
 }
 

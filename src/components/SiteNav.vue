@@ -14,9 +14,25 @@ const { theme, toggle } = useTheme()
 
 <template>
   <div class="rail">
-    <h1 class="wordmark">
-      {{ profile.name }}<span class="dot">.</span>
-    </h1>
+    <div class="identity">
+      <h1 class="wordmark">
+        {{ profile.name }}<span class="dot">.</span>
+      </h1>
+
+      <p class="status">
+        <!-- Lines ordered left to right so odd/even alternates symmetrically -->
+        <svg class="status-rays" viewBox="0 0 120 40" aria-hidden="true">
+          <line x1="31" y1="36.2" x2="25.2" y2="34.7" />
+          <line x1="37" y1="24.7" x2="27.8" y2="17" />
+          <line x1="47.3" y1="16.8" x2="44.8" y2="11.4" />
+          <line x1="60" y1="14" x2="60" y2="2" />
+          <line x1="72.7" y1="16.8" x2="75.2" y2="11.4" />
+          <line x1="83" y1="24.7" x2="92.2" y2="17" />
+          <line x1="89" y1="36.2" x2="94.8" y2="34.7" />
+        </svg>
+        <span class="status-text">Open to Design Engineer roles</span>
+      </p>
+    </div>
 
     <nav aria-label="Sections">
       <ul class="links">
@@ -30,29 +46,15 @@ const { theme, toggle } = useTheme()
       </ul>
     </nav>
 
-    <div class="meta">
-      <p class="status">
-        <svg class="status-rays" viewBox="0 0 120 40" aria-hidden="true">
-          <line x1="60" y1="14" x2="60" y2="2" />
-          <line x1="47.3" y1="16.8" x2="44.8" y2="11.4" />
-          <line x1="72.7" y1="16.8" x2="75.2" y2="11.4" />
-          <line x1="37" y1="24.7" x2="27.8" y2="17" />
-          <line x1="83" y1="24.7" x2="92.2" y2="17" />
-          <line x1="31" y1="36.2" x2="25.2" y2="34.7" />
-          <line x1="89" y1="36.2" x2="94.8" y2="34.7" />
-        </svg>
-        <span class="status-text">Open to Design Engineer roles</span>
-      </p>
-      <button
-        type="button"
-        class="theme-toggle"
-        :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
-        @click="toggle"
-      >
-        <IconSun v-if="theme === 'dark'" />
-        <IconMoon v-else />
-      </button>
-    </div>
+    <button
+      type="button"
+      class="theme-toggle"
+      :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+      @click="toggle"
+    >
+      <IconSun v-if="theme === 'dark'" />
+      <IconMoon v-else />
+    </button>
   </div>
 </template>
 
@@ -61,6 +63,7 @@ const { theme, toggle } = useTheme()
   display: flex;
   flex-direction: column;
   gap: var(--space-xl);
+  height: 100%;
 }
 
 .wordmark {
@@ -117,31 +120,40 @@ const { theme, toggle } = useTheme()
   margin-right: var(--space-xs);
 }
 
-.meta {
+.identity {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
   align-items: flex-start;
 }
 
-/* Old-timey ad emphasis: rays radiating over the announcement */
+/* Old-timey ad emphasis: rays radiating over the announcement.
+   Scaled down and tucked under the wordmark so it reads as a tagline. */
 .status {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 11rem;
+  max-width: 9.5rem;
 }
 
 .status-rays {
-  width: 6.5rem;
+  width: 4.5rem;
   margin-bottom: var(--space-2xs);
-  stroke: var(--color-success-default);
   stroke-linecap: round;
   stroke-width: 2.5;
 }
 
+/* Every second ray switches hue: kaki center fan, seiji between */
+.status-rays line:nth-child(odd) {
+  stroke: var(--color-secondary-default);
+}
+
+.status-rays line:nth-child(even) {
+  stroke: var(--color-accent-default);
+}
+
 .status-text {
-  color: var(--color-success-subtle-fg);
+  color: var(--color-text-muted);
   font-family: var(--font-code);
   font-size: var(--font-size-xs);
   letter-spacing: var(--letter-spacing-wide);
@@ -149,15 +161,22 @@ const { theme, toggle } = useTheme()
   text-transform: uppercase;
 }
 
+/* A proper control: bordered, round, anchored at the rail's bottom */
 .theme-toggle {
   display: grid;
-  padding: var(--space-2xs);
-  border: none;
+  align-self: flex-start;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-top: auto;
+  border: var(--border-width-thin) solid var(--color-border-default);
+  border-radius: var(--radius-full);
   background: none;
   color: var(--color-text-muted);
   cursor: pointer;
   place-items: center;
-  transition: color var(--duration-fast) var(--ease-out);
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
 }
 
 .theme-toggle svg {
@@ -166,12 +185,14 @@ const { theme, toggle } = useTheme()
 }
 
 .theme-toggle:hover {
+  border-color: var(--color-text-muted);
   color: var(--color-text-primary);
 }
 
 /* Below the two-column breakpoint the rail is a compact header block */
 @media (max-width: 799px) {
   .rail {
+    position: relative;
     gap: var(--space-md);
   }
 
@@ -184,12 +205,11 @@ const { theme, toggle } = useTheme()
     display: none;
   }
 
-  .meta {
-    flex-direction: row;
-    gap: var(--space-md);
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+  /* Keep the header compact: the toggle tucks into the top-right corner */
+  .theme-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }
 </style>
