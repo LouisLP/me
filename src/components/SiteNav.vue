@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import IconMoon from '~icons/lucide/moon'
+import IconSun from '~icons/lucide/sun'
 import { useTheme } from '@/composables/useTheme'
 import { profile } from '@/content/profile'
 
@@ -33,8 +35,14 @@ const { theme, toggle } = useTheme()
         <span class="status-dot" aria-hidden="true" />
         Open to Design Engineer roles
       </p>
-      <button type="button" class="theme-toggle" @click="toggle">
-        {{ theme === 'dark' ? 'light mode' : 'dark mode' }}
+      <button
+        type="button"
+        class="theme-toggle"
+        :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+        @click="toggle"
+      >
+        <IconSun v-if="theme === 'dark'" />
+        <IconMoon v-else />
       </button>
     </div>
   </div>
@@ -108,11 +116,16 @@ const { theme, toggle } = useTheme()
   align-items: flex-start;
 }
 
+/* Styled like a quiet notification: seiji lines around the live status */
 .status {
   display: inline-flex;
   gap: var(--space-xs);
   align-items: center;
-  color: var(--color-text-secondary);
+  padding: var(--space-2xs) var(--space-sm);
+  border: var(--border-width-thin) solid var(--color-secondary-border);
+  border-radius: var(--radius-full);
+  background-color: var(--color-success-subtle-bg);
+  color: var(--color-success-subtle-fg);
   font-family: var(--font-code);
   font-size: var(--font-size-xs);
 }
@@ -125,17 +138,19 @@ const { theme, toggle } = useTheme()
 }
 
 .theme-toggle {
-  padding: 0;
+  display: grid;
+  padding: var(--space-2xs);
   border: none;
   background: none;
   color: var(--color-text-muted);
   cursor: pointer;
-  font-family: var(--font-code);
-  font-size: var(--font-size-xs);
-  text-decoration: underline;
-  text-decoration-color: oklch(from currentcolor l c h / 0.4);
-  text-underline-offset: 3px;
+  place-items: center;
   transition: color var(--duration-fast) var(--ease-out);
+}
+
+.theme-toggle svg {
+  width: 1.1rem;
+  height: 1.1rem;
 }
 
 .theme-toggle:hover {

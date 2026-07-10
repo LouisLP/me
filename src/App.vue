@@ -10,7 +10,6 @@ import { projects } from '@/content/projects'
 const sections = [
   { id: 'about', label: 'About' },
   { id: 'projects', label: 'Projects' },
-  { id: 'contact', label: 'Contact' },
 ] as const
 
 const { activeId } = useScrollSpy(sections.map(section => section.id))
