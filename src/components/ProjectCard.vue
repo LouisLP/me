@@ -163,9 +163,15 @@ defineProps<{
   place-items: center;
 }
 
-.is-canvas { background-color: var(--color-bg-canvas); }
-.is-surface { background-color: var(--color-bg-surface); }
-.is-raised { background-color: var(--color-bg-surface-raised); }
+.is-canvas {
+  background-color: var(--color-bg-canvas);
+}
+.is-surface {
+  background-color: var(--color-bg-surface);
+}
+.is-raised {
+  background-color: var(--color-bg-surface-raised);
+}
 
 .is-accent {
   border-color: transparent;
