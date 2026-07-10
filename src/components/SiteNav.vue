@@ -32,8 +32,16 @@ const { theme, toggle } = useTheme()
 
     <div class="meta">
       <p class="status">
-        <span class="status-dot" aria-hidden="true" />
-        Open to Design Engineer roles
+        <svg class="status-rays" viewBox="0 0 120 40" aria-hidden="true">
+          <line x1="60" y1="14" x2="60" y2="2" />
+          <line x1="47.3" y1="16.8" x2="44.8" y2="11.4" />
+          <line x1="72.7" y1="16.8" x2="75.2" y2="11.4" />
+          <line x1="37" y1="24.7" x2="27.8" y2="17" />
+          <line x1="83" y1="24.7" x2="92.2" y2="17" />
+          <line x1="31" y1="36.2" x2="25.2" y2="34.7" />
+          <line x1="89" y1="36.2" x2="94.8" y2="34.7" />
+        </svg>
+        <span class="status-text">Open to Design Engineer roles</span>
       </p>
       <button
         type="button"
@@ -116,25 +124,29 @@ const { theme, toggle } = useTheme()
   align-items: flex-start;
 }
 
-/* Styled like a quiet notification: seiji lines around the live status */
+/* Old-timey ad emphasis: rays radiating over the announcement */
 .status {
-  display: inline-flex;
-  gap: var(--space-xs);
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: var(--space-2xs) var(--space-sm);
-  border: var(--border-width-thin) solid var(--color-secondary-border);
-  border-radius: var(--radius-full);
-  background-color: var(--color-success-subtle-bg);
+  max-width: 11rem;
+}
+
+.status-rays {
+  width: 6.5rem;
+  margin-bottom: var(--space-2xs);
+  stroke: var(--color-success-default);
+  stroke-linecap: round;
+  stroke-width: 2.5;
+}
+
+.status-text {
   color: var(--color-success-subtle-fg);
   font-family: var(--font-code);
   font-size: var(--font-size-xs);
-}
-
-.status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: var(--radius-full);
-  background-color: var(--color-success-default);
+  letter-spacing: var(--letter-spacing-wide);
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .theme-toggle {
