@@ -27,8 +27,7 @@ There is deliberately no showreel, video archive, or "past life" gallery. The mo
 
 This is the part that carries the portfolio argument, so it's doctrine, not suggestion:
 
-- **One choreographed entrance.** A single well-directed page-load sequence (staggered, editorial) where the motion-design eye shows. Impressive once.
-- **Calm after.** Past the entrance, restraint: fast micro-interactions on hover and focus, quality easing, interruptible transitions. Nothing ambient, nothing looping, nothing that moves while the user reads.
+- **Calm.** Show some restraint: fast micro-interactions on hover and focus, quality easing, interruptible transitions. Minimalist quality design.
 - **Reduced motion is non-negotiable.** `prefers-reduced-motion` gets a fully usable, dignified experience, not a broken one.
 - **Tokens, not magic numbers.** Durations and easings come from the design tokens (`--duration-*`, `--ease-*`). If a new motion value is needed, add a token.
 
