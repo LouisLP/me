@@ -15,3 +15,14 @@ pnpm type-check   # vue-tsc
 pnpm build        # type-check + production build
 pnpm preview      # serve the production build locally
 ```
+
+### Images
+
+Drop originals into `photos-inbox/` (gitignored), then run one of:
+
+```sh
+pnpm images:photo photos-inbox/IMG_4821.jpg          # bio prints → src/assets/photos/, 480×600 webp
+pnpm images:screenshot photos-inbox/scrubber.png     # project shots → src/assets/screenshots/, ≤1600×900 webp
+```
+
+Filenames are slugified automatically; pass `--name=munich` to pick your own, `--force` to overwrite. Reference the output with an import, e.g. `import munich from '@/assets/photos/munich.webp'` in `src/content/photos.ts`.
