@@ -5,10 +5,15 @@
  * run it through `pnpm images:photo` and import it from @/assets/photos.
  */
 
+import agileRobotsGroupPhoto from '@/assets/photos/agile-robots-group-photo.webp'
 import clgCamera from '@/assets/photos/clg-camera.webp'
 import clgJersey from '@/assets/photos/clg-jersey.webp'
 import clgOnStage from '@/assets/photos/clg-on-stage.webp'
+import codingStation from '@/assets/photos/coding-station.webp'
 import fidgetHead from '@/assets/photos/fidget-head.webp'
+import jobreelGroupPhoto from '@/assets/photos/jobreel-group-photo.webp'
+import meWithAgileOne from '@/assets/photos/louis-with-agile-one-robot.webp'
+import munichIsar from '@/assets/photos/munich-isar.webp'
 import writingOnTable from '@/assets/photos/writing-on-table.webp'
 
 export interface BioPhoto {
@@ -20,7 +25,7 @@ export interface BioPhoto {
 /** Set one: the video-editing and esports years. */
 export const editingEraPhotos: BioPhoto[] = [
   {
-    caption: 'shooting interviews',
+    caption: 'interviews',
     alt: 'Behind the camera at a player interview shoot: a camera and softbox in the foreground, a player in a CLG jersey and headphones at the table',
     src: clgCamera,
   },
@@ -48,9 +53,9 @@ export const editingEraPhotos: BioPhoto[] = [
 
 /** Set two: the engineering years, Munich, and what's next. */
 export const engineeringEraPhotos: BioPhoto[] = [
-  { caption: 'munich', alt: 'Street scene in Munich' },
-  { caption: 'robots at work', alt: 'Robot arm on the lab floor' },
-  { caption: 'design reviews', alt: 'Sketches and a laptop on a desk' },
-  { caption: 'component work', alt: 'Code editor with a Vue component open' },
-  { caption: 'berlin, october', alt: 'Berlin skyline' },
+  { caption: 'agile robots team', alt: '', src: agileRobotsGroupPhoto },
+  { caption: 'jobreel team', alt: '', src: jobreelGroupPhoto },
+  { caption: 'coding station', alt: '', src: codingStation },
+  { caption: 'agile one robot', alt: '', src: meWithAgileOne },
+  { caption: 'munich isar', alt: '', src: munichIsar },
 ]
