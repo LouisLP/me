@@ -18,7 +18,7 @@ One page, no router. A sticky left rail (wordmark, anchor nav with scroll-spy, s
 
 1. **Hero: the business card.** The central element. A large card with name, role, a two-line snapshot, and contact links; it tilts gently toward a fine pointer. A brief snapshot, not the full story.
 2. **About.** The first navigable section: an extended bio of a few short paragraphs telling the arc (video editor, motion designer, frontend developer, design engineer) and what design engineering means to Louis.
-3. **Selected projects.** Three to five hand-picked pieces as tall cards. Each card draws an example design vignette inside itself (CSS/SVG built from semantic tokens), with title, framing, and mono meta below. Cards are showcases, not links; a small "view source" link appears only when a project has one. Data lives in a simple typed array in the repo. No CMS, no GitHub API fetching.
+3. **Selected projects.** Three to five hand-picked pieces as tall cards. Each card draws an example design vignette inside itself (CSS/SVG built from semantic tokens), with title, framing, and mono meta below. Each card links to its own detail page at `/projects/<slug>`: a focused reading column with the written story (a few paragraphs), captioned screenshot frames, and an optional "view source" link. Data lives in a simple typed array in the repo. No CMS, no GitHub API fetching.
 4. **Footer: the kaki band.** Full-bleed brand-colored footer, ink on persimmon: "Last updated" (build date) on the left, a dark note card in the center (a few warm lines ending in a mailto), "Currently: city + live local time" on the right, then large sticker-like icon tiles (email, LinkedIn, GitHub) and a one-line colophon. This is the contact section.
 
 There is deliberately no showreel, video archive, or "past life" gallery. The motion-design history is proven by how the site moves, not by hosting old video work.
@@ -48,7 +48,7 @@ Two rules about it:
 
 - **Plain Vite + Vue SPA, no framework migration.** For one page the payload is tiny and static meta tags in `index.html` cover link previews. Revisit only if the site ever grows real pages (writing, case studies), in which case prerendering or Nuxt becomes worth discussing.
 - **Hosting: GitHub Pages, project path.** The site serves from `louislp.github.io/me`. Setting up deployment will require `base: '/me/'` in `vite.config.ts`.
-- **No router.** One page. Anchor links at most.
+- **Router: home plus project pages.** vue-router with web history; routes are `/` and `/projects/:slug`, unknown paths redirect home. Superseded the original "no router" decision when projects gained written detail pages (see `docs/adr/0001-router-for-project-pages.md`). Deploying an SPA with real URLs to GitHub Pages requires a `404.html` copy of `index.html`.
 - **Project data in the repo.** A typed array, edited by hand. Curation is the feature.
 - **Icons via unplugin-icons (Iconify).** Imported as components from `~icons/<set>/<name>` and compiled into the bundle; no runtime icon fetching, no hand-pasted SVG paths. Lucide for generic glyphs, Simple Icons for brands.
 - **Docs split.** `README.md` is the short human-facing intro (the repo is public and recruiters may read it), this file holds the vision, and `CLAUDE.md` stays thin with pointers. Substantial architecture decisions from here on should start `docs/adr/`.

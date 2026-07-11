@@ -68,7 +68,9 @@ watchEffect(() => {
         Nothing here
       </h1>
       <p class="missing">
-        That project doesn't exist (yet). <RouterLink to="/">Head back home</RouterLink>.
+        That project doesn't exist (yet). <RouterLink to="/">
+          Head back home
+        </RouterLink>.
       </p>
     </template>
   </main>
