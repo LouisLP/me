@@ -12,8 +12,8 @@ import clgOnStage from '@/assets/photos/clg-on-stage.webp'
 import codingStation from '@/assets/photos/coding-station.webp'
 import fidgetHead from '@/assets/photos/fidget-head.webp'
 import jobreelGroupPhoto from '@/assets/photos/jobreel-group-photo.webp'
+import berlinLove from '@/assets/photos/louis-and-elora-in-berlin.webp'
 import meWithAgileOne from '@/assets/photos/louis-with-agile-one-robot.webp'
-import munichIsar from '@/assets/photos/munich-isar.webp'
 import writingOnTable from '@/assets/photos/writing-on-table.webp'
 
 export interface BioPhoto {
@@ -57,5 +57,5 @@ export const engineeringEraPhotos: BioPhoto[] = [
   { caption: 'jobreel team', alt: '', src: jobreelGroupPhoto },
   { caption: 'coding station', alt: '', src: codingStation },
   { caption: 'agile one robot', alt: '', src: meWithAgileOne },
-  { caption: 'munich isar', alt: '', src: munichIsar },
+  { caption: 'berlin love', alt: '', src: berlinLove },
 ]
