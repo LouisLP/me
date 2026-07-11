@@ -12,33 +12,51 @@ defineProps<{
     <li
       v-for="(photo, index) in photos"
       :key="photo.caption"
-      class="print"
+      class="cell"
       :style="{ zIndex: photos.length - index }"
     >
-      <span class="frame">
-        <img v-if="photo.src" :src="photo.src" :alt="photo.alt" loading="lazy">
-        <IconImage v-else class="placeholder-icon" aria-hidden="true" />
-      </span>
-      <span class="caption">{{ photo.caption }}</span>
+      <div class="print">
+        <span class="frame">
+          <img v-if="photo.src" :src="photo.src" :alt="photo.alt" loading="lazy">
+          <IconImage v-else class="placeholder-icon" aria-hidden="true" />
+        </span>
+        <span class="caption">{{ photo.caption }}</span>
+      </div>
     </li>
   </ul>
 </template>
 
 <style scoped>
-/* Prints laid on a table: overlapping, each at its own slight angle */
+/* Prints laid on a table. No scrolling: the cells shrink as the viewport
+   narrows while each print keeps its size, so the pile squishes together
+   and the overlap deepens. */
 .strip {
   display: flex;
   padding: var(--space-md) var(--space-md) var(--space-sm);
   list-style: none;
-  overflow-x: auto;
+}
+
+.cell {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  /* Caps how far apart prints can drift on wide screens: a slight overlap */
+  max-width: 8rem;
+}
+
+/* The last print needs its full width so the pile stays inside the strip */
+.cell:last-child {
+  flex: 0 0 auto;
+}
+
+.cell:hover {
+  z-index: 10 !important;
 }
 
 .print {
-  position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
-  flex-shrink: 0;
   width: 8.5rem;
   padding: var(--space-xs) var(--space-xs) var(--space-sm);
   border: var(--border-width-thin) solid var(--color-border-default);
@@ -51,34 +69,33 @@ defineProps<{
     box-shadow var(--duration-normal) var(--ease-out);
 }
 
-.print + .print {
-  margin-left: calc(-1 * var(--space-xs));
-}
-
 /* Alternate baselines slightly, like prints laid down by hand */
-.print:nth-child(even) {
+.cell:nth-child(even) .print {
   margin-top: var(--space-sm);
 }
 
-.print:nth-child(5n + 1) {
+.cell:nth-child(5n + 1) .print {
   rotate: -3deg;
 }
-.print:nth-child(5n + 2) {
+
+.cell:nth-child(5n + 2) .print {
   rotate: 2deg;
 }
-.print:nth-child(5n + 3) {
+
+.cell:nth-child(5n + 3) .print {
   rotate: -1.5deg;
 }
-.print:nth-child(5n + 4) {
+
+.cell:nth-child(5n + 4) .print {
   rotate: 2.5deg;
 }
-.print:nth-child(5n) {
+
+.cell:nth-child(5n) .print {
   rotate: -2deg;
 }
 
 /* A print straightens and lifts above its neighbors when picked up */
 .print:hover {
-  z-index: 10 !important;
   box-shadow: var(--shadow-lg);
   rotate: 0deg;
   translate: 0 -4px;
