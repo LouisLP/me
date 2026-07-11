@@ -11,7 +11,9 @@
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
-    "type-check": "vue-tsc --build"
+    "type-check": "vue-tsc --build",
+    "images:photo": "node scripts/optimize-images.mjs photo",
+    "images:screenshot": "node scripts/optimize-images.mjs screenshot"
   },
   "dependencies": {
     "@fontsource-variable/bricolage-grotesque": "^5.2.10",
@@ -29,6 +31,7 @@
     "eslint": "^10.5.0",
     "eslint-plugin-format": "^2.0.1",
     "npm-run-all2": "^9.0.2",
+    "sharp": "^0.35.3",
     "typescript": "~6.0.0",
     "unplugin-icons": "^23.0.1",
     "vite": "^8.0.16",
