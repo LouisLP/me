@@ -1,10 +1,15 @@
 /**
  * Photo strips punctuating the bio — two sets of five, one per paragraph.
  *
- * All entries are PLACEHOLDERS until real photos are dropped in: set `src`
- * (imported asset or public path) and the frame renders the image instead
- * of the empty-print placeholder. Captions are visible either way.
+ * Entries without `src` render as empty-print placeholders. To add a photo,
+ * run it through `pnpm images:photo` and import it from @/assets/photos.
  */
+
+import clgCamera from '@/assets/photos/clg-camera.webp'
+import clgJersey from '@/assets/photos/clg-jersey.webp'
+import clgOnStage from '@/assets/photos/clg-on-stage.webp'
+import fidgetHead from '@/assets/photos/fidget-head.webp'
+import writingOnTable from '@/assets/photos/writing-on-table.webp'
 
 export interface BioPhoto {
   caption: string
@@ -14,11 +19,31 @@ export interface BioPhoto {
 
 /** Set one: the video-editing and esports years. */
 export const editingEraPhotos: BioPhoto[] = [
-  { caption: 'the edit bay', alt: 'Editing workstation with a timeline open' },
-  { caption: 'render night', alt: 'Progress bar crawling late at night' },
-  { caption: 'esports finals', alt: 'Broadcast control room at an esports event' },
-  { caption: 'keyframes', alt: 'Motion graphics curves in an editor' },
-  { caption: 'back to school', alt: 'UBC campus' },
+  {
+    caption: 'shooting interviews',
+    alt: 'Behind the camera at a player interview shoot: a camera and softbox in the foreground, a player in a CLG jersey and headphones at the table',
+    src: clgCamera,
+  },
+  {
+    caption: 'the lcs stage',
+    alt: 'The LCS studio during a match: two teams at their stations under a giant screen showing League of Legends, crowd in the foreground',
+    src: clgOnStage,
+  },
+  {
+    caption: 'trustyturkey',
+    alt: 'Pointing both thumbs at the back of a CLG jersey with the name TrustyTurkey printed across the shoulders',
+    src: clgJersey,
+  },
+  {
+    caption: 'mascot duty',
+    alt: 'Wearing the Fidget mascot head (Misfits Gaming\'s mascot), flashing a peace sign',
+    src: fidgetHead,
+  },
+  {
+    caption: 'scripting',
+    alt: 'Writing on paper at a wooden table, hood up and glasses on, phone within reach',
+    src: writingOnTable,
+  },
 ]
 
 /** Set two: the engineering years, Munich, and what's next. */
