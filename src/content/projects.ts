@@ -91,7 +91,7 @@ export const projects: Project[] = [
   {
     slug: 'kaki',
     title: 'kaki',
-    description: 'An easing playground: grab the curve by its handles, watch a persimmon act it out, copy the CSS. This site\'s palette, but turned into a toy.',
+    description: 'An easing playground: grab the curve by its handles, watch a persimmon act it out, copy the CSS.',
     meta: 'Svelte · cubic-bezier()',
     preview: 'easing',
     body: [
