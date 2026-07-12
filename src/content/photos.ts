@@ -5,15 +5,15 @@
  * run it through `pnpm images:photo` and import it from @/assets/photos.
  */
 
-import agileRobotsGroupPhoto from '@/assets/photos/agile-robots-group-photo.webp'
+import agileOneSelfie from '@/assets/photos/agile-one-selfie.webp'
+import agileRobotsTeam from '@/assets/photos/agile-robots-team.webp'
+import berlinWithElora from '@/assets/photos/berlin-with-elora.webp'
 import clgCamera from '@/assets/photos/clg-camera.webp'
 import clgJersey from '@/assets/photos/clg-jersey.webp'
 import clgOnStage from '@/assets/photos/clg-on-stage.webp'
 import codingStation from '@/assets/photos/coding-station.webp'
 import fidgetHead from '@/assets/photos/fidget-head.webp'
-import jobreelGroupPhoto from '@/assets/photos/jobreel-group-photo.webp'
-import berlinLove from '@/assets/photos/louis-and-elora-in-berlin.webp'
-import meWithAgileOne from '@/assets/photos/louis-with-agile-one-robot.webp'
+import jobreelTeam from '@/assets/photos/jobreel-team.webp'
 import writingOnTable from '@/assets/photos/writing-on-table.webp'
 
 export interface BioPhoto {
@@ -53,9 +53,29 @@ export const editingEraPhotos: BioPhoto[] = [
 
 /** Set two: the engineering years, Munich, and what's next. */
 export const engineeringEraPhotos: BioPhoto[] = [
-  { caption: 'agile robots team', alt: '', src: agileRobotsGroupPhoto },
-  { caption: 'jobreel team', alt: '', src: jobreelGroupPhoto },
-  { caption: 'coding station', alt: '', src: codingStation },
-  { caption: 'agile one robot', alt: '', src: meWithAgileOne },
-  { caption: 'berlin love', alt: '', src: berlinLove },
+  {
+    caption: 'agile robots',
+    alt: 'Office selfie with the Agile Robots team, a few arms raised in celebration in the background',
+    src: agileRobotsTeam,
+  },
+  {
+    caption: 'jobreel days',
+    alt: 'Sitting on wooden steps with the Jobreel team in front of a wall of loft windows',
+    src: jobreelTeam,
+  },
+  {
+    caption: 'the night desk',
+    alt: 'Home desk at night: a lamp over a laptop on a stand, a monitor glowing beside a plant, everything in warm light',
+    src: codingStation,
+  },
+  {
+    caption: 'a coworker',
+    alt: 'Selfie with the Agile ONE humanoid robot, flashing a peace sign next to its blue-lit face',
+    src: agileOneSelfie,
+  },
+  {
+    caption: 'berlin love',
+    alt: 'Elora resting her head on Louis\'s shoulder under a U-Bahn overpass in Berlin, low sun flaring behind',
+    src: berlinWithElora,
+  },
 ]
