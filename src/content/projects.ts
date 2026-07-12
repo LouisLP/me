@@ -13,6 +13,7 @@
  */
 
 import kabukiHero from '@/assets/screenshots/kabuki-hero.webp'
+import kakiHero from '@/assets/screenshots/kaki-hero.webp'
 import kakiPlayground from '@/assets/screenshots/kaki-playground.webp'
 import kakiStickerSheet from '@/assets/screenshots/kaki-sticker-sheet.webp'
 
@@ -95,7 +96,7 @@ export const projects: Project[] = [
     title: 'kaki',
     description: 'An easing playground: grab the curve by its handles, watch a persimmon act it out, copy the CSS.',
     meta: 'Svelte · cubic-bezier()',
-    hero: { src: kakiPlayground, alt: 'The kaki curve editor and stage, with an overshooting curve loaded' },
+    hero: { src: kakiHero, alt: 'The kaki curve editor and stage, with an overshooting curve loaded' },
     body: [
       'kaki is a small easing playground: you drag a cubic-bezier curve around and a persimmon acts it out on the stage next to it. The stage runs a real CSS animation with the current curve, so the preview is exactly what the copied CSS will do. There\'s no JavaScript reimplementation that could drift from the real thing.',
       'It shares this site\'s Kabuki tokens (vendored, so the copy is free to drift), but the design is a lot more playful than this site with chunkier shapes and such. The name is a coincidence I ran with, since kaki is both the Japanese word for persimmon and the name of the palette\'s orange.',
