@@ -2,7 +2,6 @@
 import { computed, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
 import IconImage from '~icons/lucide/image'
-import ProjectVignette from '@/components/ProjectVignette.vue'
 import { profile } from '@/content/profile'
 import { projects } from '@/content/projects'
 
@@ -35,10 +34,6 @@ watchEffect(() => {
           {{ project.meta }}
         </p>
       </header>
-
-      <div class="hero">
-        <ProjectVignette :variant="project.preview" />
-      </div>
 
       <article class="body">
         <p v-for="paragraph in project.body" :key="paragraph">
@@ -113,15 +108,6 @@ watchEffect(() => {
   font-size: var(--font-size-xs);
   letter-spacing: var(--letter-spacing-wide);
   text-transform: uppercase;
-}
-
-.hero {
-  display: grid;
-  min-height: 13rem;
-  border: var(--border-width-thin) solid var(--color-border-subtle);
-  border-radius: var(--radius-lg);
-  background-color: var(--color-bg-surface);
-  place-items: center;
 }
 
 .body {

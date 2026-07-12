@@ -12,10 +12,14 @@
  * a plausible shape to design against until real work is ready to show.
  */
 
+import kabukiHero from '@/assets/screenshots/kabuki-hero.webp'
 import kakiPlayground from '@/assets/screenshots/kaki-playground.webp'
 import kakiStickerSheet from '@/assets/screenshots/kaki-sticker-sheet.webp'
 
-export type ProjectPreview = 'tokens' | 'library' | 'marketplace' | 'scrubber' | 'easing'
+export interface ProjectHero {
+  src: string
+  alt: string
+}
 
 export interface ProjectScreenshot {
   caption: string
@@ -30,8 +34,8 @@ export interface Project {
   description: string
   /** Short mono meta line: stack, medium, or year. */
   meta: string
-  /** Which vignette the card draws inside itself. */
-  preview: ProjectPreview
+  /** Card hero screenshot carrying the project's look; placeholder frame until set. */
+  hero?: ProjectHero
   /** Written detail for the project page, one entry per paragraph. */
   body: string[]
   screenshots: ProjectScreenshot[]
@@ -44,7 +48,7 @@ export const projects: Project[] = [
     title: 'Kabuki',
     description: 'The design system this site runs on: an oklch token architecture with a palette sampled from a kabuki theatre curtain, themed with light-dark() all the way down.',
     meta: 'CSS · design tokens',
-    preview: 'tokens',
+    hero: { src: kabukiHero, alt: 'The site hero card in the Kabuki dark theme' },
     body: [
       'Kabuki is the token system behind this site. The palette comes from the joshiki-maku theatre curtain: sumi ink for the surfaces, kaki persimmon and seiji pine-green as two co-equal interactive hues rather than the usual accent-plus-status arrangement.',
       'The architecture is two layers deep. Primitives hold the raw oklch scales; a semantic layer maps them to intent (canvas, surface, accent, success) and wraps every color in light-dark(), so the whole site retheming is one color-scheme declaration. Components are only allowed to touch the semantic layer.',
@@ -61,7 +65,6 @@ export const projects: Project[] = [
     title: 'Agile UI',
     description: 'The component library I built at Agile Robots: Reka UI underneath, a design system of our own on top, and a Figma file that matches the CSS one-to-one.',
     meta: 'Vue · Reka UI · Storybook',
-    preview: 'library',
     body: [
       'Agile UI is the component library I built at Agile Robots. Underneath about 75% of the components is Reka UI, a headless/unstyled library. On top sits a design system of our own, with primitive, semantic, and component-level tokens (the same layering as this site, just at company scale).',
       'The decision that paid off most was keeping Figma and the CSS strictly one-to-one. Every variable in the design file had an exact counterpart in code, which is what made Figma\'s MCP server useful: point it at a design and what came out was a predictable recreation using the exact same tokens.',
@@ -77,7 +80,6 @@ export const projects: Project[] = [
     title: 'Agile Data Hub',
     description: 'A marketplace for robot task datasets: operators browse pre-recorded robot actions and buy the ones their factory needs. From nothing to a working payment system in a month.',
     meta: 'Nuxt · Stripe · Prisma',
-    preview: 'marketplace',
     body: [
       'Agile Data Hub is a marketplace for robot task datasets at Agile Robots. Operators browse pre-recorded robot actions and buy the ones their factory needs, the way you\'d license a stock photo.',
       'We built it from scratch as a full-stack product (Nuxt and Tailwind up front, Prisma and BetterAuth underneath, Stripe handling real payments) in about a month. Francis Gurr led the build, and I joined alongside one other designer. The team staying that small is most of why it moved that fast.',
@@ -93,7 +95,7 @@ export const projects: Project[] = [
     title: 'kaki',
     description: 'An easing playground: grab the curve by its handles, watch a persimmon act it out, copy the CSS.',
     meta: 'Svelte · cubic-bezier()',
-    preview: 'easing',
+    hero: { src: kakiPlayground, alt: 'The kaki curve editor and stage, with an overshooting curve loaded' },
     body: [
       'kaki is a small easing playground: you drag a cubic-bezier curve around and a persimmon acts it out on the stage next to it. The stage runs a real CSS animation with the current curve, so the preview is exactly what the copied CSS will do. There\'s no JavaScript reimplementation that could drift from the real thing.',
       'It shares this site\'s Kabuki tokens (vendored, so the copy is free to drift), but the design is a lot more playful than this site with chunkier shapes and such. The name is a coincidence I ran with, since kaki is both the Japanese word for persimmon and the name of the palette\'s orange.',
@@ -110,7 +112,6 @@ export const projects: Project[] = [
     title: 'Timeline scrubber',
     description: 'A video-editor-style scrubber for browsing long content in the browser, because some habits are worth keeping.',
     meta: 'TypeScript · Canvas',
-    preview: 'scrubber',
     body: [
       'Placeholder copy: what the scrubber is, why an editing-timeline mental model beats a plain progress bar for long content, and what it felt like to rebuild a tool I used daily for years.',
       'Placeholder copy: the interesting technical bits — canvas rendering, pointer handling, keyboard support, and how the playhead stays interruptible.',

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Project } from '@/content/projects'
-import ProjectVignette from '@/components/ProjectVignette.vue'
+import IconImage from '~icons/lucide/image'
 
 defineProps<{
   project: Project
@@ -10,7 +10,13 @@ defineProps<{
 <template>
   <RouterLink class="card" :to="`/projects/${project.slug}`">
     <div class="preview">
-      <ProjectVignette :variant="project.preview" />
+      <img
+        v-if="project.hero"
+        :src="project.hero.src"
+        :alt="project.hero.alt"
+        loading="lazy"
+      >
+      <IconImage v-else class="preview-placeholder" aria-hidden="true" />
     </div>
 
     <div class="body">
@@ -53,6 +59,19 @@ defineProps<{
   border-bottom: var(--border-width-thin) solid var(--color-border-subtle);
   background-color: var(--color-bg-canvas);
   place-items: center;
+}
+
+.preview img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+}
+
+.preview-placeholder {
+  width: var(--space-xl);
+  height: var(--space-xl);
+  color: var(--color-text-muted);
 }
 
 .body {
