@@ -8,11 +8,12 @@
  * (placeholder frames until `src` is set). `href` is optional and shows as
  * a "view source" link on the detail page only.
  *
- * All entries below except Kabuki are PLACEHOLDERS: plausible shapes to
- * design against until real work is ready to show. Swap them out.
+ * Kabuki, Agile UI, and Agile Data Hub are real. The last two entries are
+ * PLACEHOLDERS: plausible shapes to design against until real work is ready
+ * to show. Swap them out.
  */
 
-export type ProjectPreview = 'tokens' | 'scrubber' | 'easing' | 'type'
+export type ProjectPreview = 'tokens' | 'library' | 'marketplace' | 'scrubber' | 'easing'
 
 export interface ProjectScreenshot {
   caption: string
@@ -54,6 +55,38 @@ export const projects: Project[] = [
     href: 'https://github.com/LouisLP/me',
   },
   {
+    slug: 'agile-ui',
+    title: 'Agile UI',
+    description: 'A component library for Agile Robots, grown into a full design system: a headless Reka UI base, three layers of tokens, and a Figma file that matches the CSS one-to-one.',
+    meta: 'Vue · Reka UI · Storybook',
+    preview: 'library',
+    body: [
+      'Agile UI is the component library I built at Agile Robots. Underneath is Reka UI, headless and unstyled; on top sits a design system of our own with primitive, semantic, and component-level tokens — the same layering as this site, at company scale.',
+      'The decision that paid off most was keeping Figma and the CSS strictly one-to-one. Every variable in the design file had an exact counterpart in code, so when we pointed Figma’s MCP server at a design, what came out was predictable rather than approximate. Designers and engineers stopped negotiating pixel values; the tokens did it for them.',
+      'Storybook became the source of truth — the place anyone could browse a component’s variants and states without reading source. And because the base was headless, accessibility was a starting condition rather than a retrofit: keyboard behavior and semantics came with the primitives, and the styling never got a chance to break them.',
+    ],
+    screenshots: [
+      { caption: 'browsing button variants in Storybook', alt: 'Storybook showing Agile UI button variants and controls' },
+      { caption: 'tokens in Figma and CSS, one-to-one', alt: 'Figma variables panel beside the matching CSS custom properties' },
+    ],
+  },
+  {
+    slug: 'agile-data-hub',
+    title: 'Agile Data Hub',
+    description: 'A marketplace for robot task datasets — operators browse pre-recorded robot actions and buy the ones their fleet needs. From nothing to a working payment system in a month.',
+    meta: 'Nuxt · Stripe · Prisma',
+    preview: 'marketplace',
+    body: [
+      'Agile Data Hub is a marketplace for robot task datasets at Agile Robots: operators browse pre-recorded robot actions and purchase the ones their fleet needs, the way you’d license a stock photo.',
+      'We built it from scratch as a full-stack product — Nuxt and Tailwind up front, Prisma and BetterAuth underneath, Stripe handling real payments — in about a month. Francis Gurr led the build; I joined alongside one designer, and the team staying that small is most of why it moved that fast.',
+      'A month is a short runway for anything with a payment system in it, so the architecture had to stay boring on purpose: few moving parts, each one chosen to scale past the demo without a rewrite.',
+    ],
+    screenshots: [
+      { caption: 'the dataset catalogue', alt: 'Agile Data Hub grid of robot task datasets' },
+      { caption: 'checkout, powered by Stripe', alt: 'Dataset purchase flow with Stripe checkout' },
+    ],
+  },
+  {
     slug: 'timeline-scrubber',
     title: 'Timeline scrubber',
     description: 'A video-editor-style scrubber for browsing long content in the browser, because some habits are worth keeping.',
@@ -80,20 +113,6 @@ export const projects: Project[] = [
     ],
     screenshots: [
       { caption: 'two curves, one motion preview', alt: 'Easing playground comparing two curves' },
-    ],
-  },
-  {
-    slug: 'title-cards',
-    title: 'Title cards',
-    description: 'Interface type treatments rebuilt from old title-sequence work, one cut at a time.',
-    meta: 'CSS · motion study',
-    preview: 'type',
-    body: [
-      'Placeholder copy: taking type treatments from old title-sequence work and rebuilding them as live, accessible interface states.',
-      'Placeholder copy: what survives the translation from After Effects to CSS, and what has to be rethought entirely.',
-    ],
-    screenshots: [
-      { caption: 'a title treatment, before and after', alt: 'Type specimen rebuilt as a web component' },
     ],
   },
 ]
