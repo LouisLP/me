@@ -55,16 +55,17 @@ defineProps<{
 
 .preview {
   display: grid;
-  min-height: 13rem;
+  height: 13rem;
   border-bottom: var(--border-width-thin) solid var(--color-border-subtle);
   background-color: var(--color-bg-canvas);
+  grid-template-rows: 100%;
   place-items: center;
 }
 
 .preview img {
   display: block;
   width: 100%;
-  aspect-ratio: 21 / 9;
+  height: 100%;
   object-fit: cover;
 }
 
