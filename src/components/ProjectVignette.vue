@@ -47,9 +47,30 @@ defineProps<{
       <path d="M 30 100 C 58 30, 120 20, 170 20" class="curve" />
     </svg>
 
-    <div v-else class="vignette-type">
-      <span class="specimen">Aa</span>
-      <span class="specimen-caption">BRICOLAGE GROTESQUE · 04:03:00</span>
+    <div v-else-if="variant === 'library'" class="vignette-library">
+      <div class="variant-row">
+        <span class="ui-button is-solid">Button</span>
+        <span class="ui-button is-outline">Button</span>
+        <span class="ui-button is-ghost">Button</span>
+      </div>
+      <span class="variant-caption">button · solid / outline / ghost</span>
+    </div>
+
+    <div v-else class="vignette-market">
+      <div class="dataset-card">
+        <svg class="trace" viewBox="0 0 96 28">
+          <path d="M 4 22 C 22 22, 26 6, 48 6 S 76 22, 92 22" class="trace-path is-accent" />
+        </svg>
+        <span class="dataset-name">pick-and-place</span>
+        <span class="dataset-price">€49</span>
+      </div>
+      <div class="dataset-card">
+        <svg class="trace" viewBox="0 0 96 28">
+          <path d="M 4 20 L 24 20 L 32 8 L 52 8 L 60 20 L 80 20 L 92 10" class="trace-path" />
+        </svg>
+        <span class="dataset-name">bin-sorting</span>
+        <span class="dataset-price">€79</span>
+      </div>
     </div>
   </div>
 </template>
@@ -204,28 +225,103 @@ defineProps<{
   stroke-width: 2.5;
 }
 
-/* Title cards: a type specimen on a baseline */
-.vignette-type {
+/* Agile UI: one component, its variants, the way Storybook lays them out */
+.vignette-library {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-md);
   align-items: center;
 }
 
-.specimen {
-  padding-bottom: var(--space-2xs);
-  border-bottom: var(--border-width-thin) solid var(--color-border-default);
-  font-family: var(--font-heading);
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-bold);
-  letter-spacing: var(--letter-spacing-tight);
-  line-height: var(--line-height-tight);
+.variant-row {
+  display: flex;
+  gap: var(--space-sm);
 }
 
-.specimen-caption {
+.ui-button {
+  padding: var(--space-xs) var(--space-md);
+  border: var(--border-width-thin) solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.is-solid {
+  background-color: var(--color-accent-default);
+  color: var(--color-text-on-accent);
+}
+
+.is-outline {
+  border-color: var(--color-border-default);
+}
+
+.is-ghost {
+  color: var(--color-text-secondary);
+}
+
+/* the hover state demos a focus ring: the library's a11y is the point */
+.is-solid {
+  outline: var(--border-width-thick) solid transparent;
+  outline-offset: var(--focus-ring-offset);
+  transition: outline-color var(--duration-fast) var(--ease-out);
+}
+
+.vignette:hover .is-solid {
+  outline-color: var(--color-focus-ring);
+}
+
+.variant-caption {
   color: var(--color-text-muted);
   font-family: var(--font-code);
   font-size: var(--font-size-xs);
-  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* Agile Data Hub: two datasets on the shelf, trajectory and price tag */
+.vignette-market {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.dataset-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-2xs) var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border: var(--border-width-thin) solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-surface);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.vignette:hover .dataset-card:first-child {
+  border-color: var(--color-accent-default);
+}
+
+.trace {
+  grid-column: 1 / -1;
+  width: 7rem;
+}
+
+.trace-path {
+  fill: none;
+  stroke: var(--color-secondary-default);
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+.trace-path.is-accent {
+  stroke: var(--color-accent-default);
+}
+
+.dataset-name {
+  color: var(--color-text-muted);
+  font-family: var(--font-code);
+  font-size: var(--font-size-xs);
+}
+
+.dataset-price {
+  color: var(--color-text-secondary);
+  font-family: var(--font-code);
+  font-size: var(--font-size-xs);
 }
 </style>
