@@ -7,13 +7,13 @@
 
 import agileOneSelfie from '@/assets/photos/agile-one-selfie.webp'
 import agileRobotsTeam from '@/assets/photos/agile-robots-team.webp'
-import berlinWithElora from '@/assets/photos/berlin-with-elora.webp'
 import clgCamera from '@/assets/photos/clg-camera.webp'
 import clgJersey from '@/assets/photos/clg-jersey.webp'
 import clgOnStage from '@/assets/photos/clg-on-stage.webp'
 import codingStation from '@/assets/photos/coding-station.webp'
 import fidgetHead from '@/assets/photos/fidget-head.webp'
 import jobreelTeam from '@/assets/photos/jobreel-team.webp'
+import kaltenbergerRitterturnier from '@/assets/photos/kaltenberger-ritterturnier.webp'
 import writingOnTable from '@/assets/photos/writing-on-table.webp'
 
 export interface BioPhoto {
@@ -74,8 +74,8 @@ export const engineeringEraPhotos: BioPhoto[] = [
     src: agileOneSelfie,
   },
   {
-    caption: 'berlin love',
-    alt: 'Elora resting her head on Louis\'s shoulder under a U-Bahn overpass in Berlin, low sun flaring behind',
-    src: berlinWithElora,
+    caption: 'medieval munich',
+    alt: 'Holding a sword up towards the camera at Kaltenberger Ritterturnier, a medieval festival near Munich',
+    src: kaltenbergerRitterturnier,
   },
 ]
