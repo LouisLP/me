@@ -57,13 +57,13 @@ export const projects: Project[] = [
   {
     slug: 'agile-ui',
     title: 'Agile UI',
-    description: 'A component library for Agile Robots, grown into a full design system: a headless Reka UI base, three layers of tokens, and a Figma file that matches the CSS one-to-one.',
+    description: 'The component library I built at Agile Robots: Reka UI underneath, a design system of our own on top, and a Figma file that matches the CSS one-to-one.',
     meta: 'Vue · Reka UI · Storybook',
     preview: 'library',
     body: [
-      'Agile UI is the component library I built at Agile Robots. Underneath is Reka UI, headless and unstyled; on top sits a design system of our own with primitive, semantic, and component-level tokens — the same layering as this site, at company scale.',
-      'The decision that paid off most was keeping Figma and the CSS strictly one-to-one. Every variable in the design file had an exact counterpart in code, so when we pointed Figma’s MCP server at a design, what came out was predictable rather than approximate. Designers and engineers stopped negotiating pixel values; the tokens did it for them.',
-      'Storybook became the source of truth — the place anyone could browse a component’s variants and states without reading source. And because the base was headless, accessibility was a starting condition rather than a retrofit: keyboard behavior and semantics came with the primitives, and the styling never got a chance to break them.',
+      'Agile UI is the component library I built at Agile Robots. Underneath about 75% of the components is Reka UI, a headless/unstyled library. On top sits a design system of our own, with primitive, semantic, and component-level tokens (the same layering as this site, just at company scale).',
+      'The decision that paid off most was keeping Figma and the CSS strictly one-to-one. Every variable in the design file had an exact counterpart in code, which is what made Figma\'s MCP server useful: point it at a design and what came out was a predictable recreation using the exact same tokens.',
+      'Storybook became the source of truth, and was a place anyone could browse a component\'s variants and states without digging through source. And because the base was headless, accessibility came built in. Keyboard behavior and semantics arrived with the primitives, and our styling never got a chance to break them.',
     ],
     screenshots: [
       { caption: 'browsing button variants in Storybook', alt: 'Storybook showing Agile UI button variants and controls' },
@@ -73,13 +73,13 @@ export const projects: Project[] = [
   {
     slug: 'agile-data-hub',
     title: 'Agile Data Hub',
-    description: 'A marketplace for robot task datasets — operators browse pre-recorded robot actions and buy the ones their fleet needs. From nothing to a working payment system in a month.',
+    description: 'A marketplace for robot task datasets: operators browse pre-recorded robot actions and buy the ones their fleet needs. From nothing to a working payment system in a month.',
     meta: 'Nuxt · Stripe · Prisma',
     preview: 'marketplace',
     body: [
-      'Agile Data Hub is a marketplace for robot task datasets at Agile Robots: operators browse pre-recorded robot actions and purchase the ones their fleet needs, the way you’d license a stock photo.',
-      'We built it from scratch as a full-stack product — Nuxt and Tailwind up front, Prisma and BetterAuth underneath, Stripe handling real payments — in about a month. Francis Gurr led the build; I joined alongside one designer, and the team staying that small is most of why it moved that fast.',
-      'A month is a short runway for anything with a payment system in it, so the architecture had to stay boring on purpose: few moving parts, each one chosen to scale past the demo without a rewrite.',
+      'Agile Data Hub is a marketplace for robot task datasets at Agile Robots. Operators browse pre-recorded robot actions and buy the ones their factory needs, the way you\'d license a stock photo.',
+      'We built it from scratch as a full-stack product (Nuxt and Tailwind up front, Prisma and BetterAuth underneath, Stripe handling real payments) in about a month. Francis Gurr led the build, and I joined alongside one other designer. The team staying that small is most of why it moved that fast.',
+      'A month is a short runway for anything with a payment system in it, but we pulled it off, keeping a consistent design system throughout.',
     ],
     screenshots: [
       { caption: 'the dataset catalogue', alt: 'Agile Data Hub grid of robot task datasets' },
