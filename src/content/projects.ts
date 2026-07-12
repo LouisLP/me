@@ -95,9 +95,9 @@ export const projects: Project[] = [
     meta: 'Svelte · cubic-bezier()',
     preview: 'easing',
     body: [
-      'kaki is a small easing playground built around one rule: the preview has to be the real thing. The stage runs an actual CSS animation with the curve you\'re editing, so what the persimmon does is exactly what the copied cubic-bezier() will do in your project. No JavaScript reimplementation, no approximation.',
-      'It runs on the same Kabuki tokens as this site (vendored, free to drift), but where the portfolio stays restrained, kaki gets to be a toy. Chunky shapes, sticker shadows, a persimmon mascot. Kaki is the Japanese word for persimmon and also the name of the palette\'s orange, which felt like a sign. The two curve handles each own one of the palette\'s hues, in the editor and in the output string alike.',
-      'The scope is deliberately tiny. Only curves a single cubic-bezier() can express (no bounce, no elastic, that would be a v2), curve state living in the URL so any curve is a shareable link, and tests on the pure math only. The UI is the demo.',
+      'kaki is a small easing playground: you drag a cubic-bezier curve around and a persimmon acts it out on the stage next to it. The stage runs a real CSS animation with the current curve, so the preview is exactly what the copied CSS will do. There\'s no JavaScript reimplementation that could drift from the real thing.',
+      'It shares this site\'s Kabuki tokens (vendored, so the copy is free to drift), but the design is a lot more playful than this site with chunkier shapes and such. The name is a coincidence I ran with, since kaki is both the Japanese word for persimmon and the name of the palette\'s orange.',
+      'I kept the scope small on purpose. It only handles curves a single cubic-bezier() can express, so no bounce and no elastic. The current curve lives in the URL, which makes every curve a shareable link, and the tests cover just the pure logic (bezier math, the URL codec, preset integrity).',
     ],
     screenshots: [
       { caption: 'an out-back curve on the stage', alt: 'The kaki curve editor with an overshooting out-back curve, and the persimmon mascot on the stage', src: kakiPlayground },
