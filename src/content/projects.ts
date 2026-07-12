@@ -73,7 +73,7 @@ export const projects: Project[] = [
   {
     slug: 'agile-data-hub',
     title: 'Agile Data Hub',
-    description: 'A marketplace for robot task datasets: operators browse pre-recorded robot actions and buy the ones their fleet needs. From nothing to a working payment system in a month.',
+    description: 'A marketplace for robot task datasets: operators browse pre-recorded robot actions and buy the ones their factory needs. From nothing to a working payment system in a month.',
     meta: 'Nuxt · Stripe · Prisma',
     preview: 'marketplace',
     body: [
