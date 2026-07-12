@@ -8,10 +8,12 @@
  * (placeholder frames until `src` is set). `href` is optional and shows as
  * a "view source" link on the detail page only.
  *
- * Kabuki, Agile UI, and Agile Data Hub are real. The last two entries are
- * PLACEHOLDERS: plausible shapes to design against until real work is ready
- * to show. Swap them out.
+ * Every entry is real except Timeline scrubber, the remaining PLACEHOLDER:
+ * a plausible shape to design against until real work is ready to show.
  */
+
+import kakiPlayground from '@/assets/screenshots/kaki-playground.webp'
+import kakiStickerSheet from '@/assets/screenshots/kaki-sticker-sheet.webp'
 
 export type ProjectPreview = 'tokens' | 'library' | 'marketplace' | 'scrubber' | 'easing'
 
@@ -87,6 +89,23 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: 'kaki',
+    title: 'kaki',
+    description: 'An easing playground: grab the curve by its handles, watch a persimmon act it out, copy the CSS. This site\'s palette, but turned into a toy.',
+    meta: 'Svelte · cubic-bezier()',
+    preview: 'easing',
+    body: [
+      'kaki is a small easing playground built around one rule: the preview has to be the real thing. The stage runs an actual CSS animation with the curve you\'re editing, so what the persimmon does is exactly what the copied cubic-bezier() will do in your project. No JavaScript reimplementation, no approximation.',
+      'It runs on the same Kabuki tokens as this site (vendored, free to drift), but where the portfolio stays restrained, kaki gets to be a toy. Chunky shapes, sticker shadows, a persimmon mascot. Kaki is the Japanese word for persimmon and also the name of the palette\'s orange, which felt like a sign. The two curve handles each own one of the palette\'s hues, in the editor and in the output string alike.',
+      'The scope is deliberately tiny. Only curves a single cubic-bezier() can express (no bounce, no elastic, that would be a v2), curve state living in the URL so any curve is a shareable link, and tests on the pure math only. The UI is the demo.',
+    ],
+    screenshots: [
+      { caption: 'an out-back curve on the stage', alt: 'The kaki curve editor with an overshooting out-back curve, and the persimmon mascot on the stage', src: kakiPlayground },
+      { caption: 'the sticker sheet of presets', alt: 'A grid of easing presets drawn as tilted sticker cards', src: kakiStickerSheet },
+    ],
+    href: 'https://github.com/LouisLP/kaki',
+  },
+  {
     slug: 'timeline-scrubber',
     title: 'Timeline scrubber',
     description: 'A video-editor-style scrubber for browsing long content in the browser, because some habits are worth keeping.',
@@ -99,20 +118,6 @@ export const projects: Project[] = [
     screenshots: [
       { caption: 'the scrubber over a long transcript', alt: 'Timeline scrubber component in context' },
       { caption: 'zoomed to frame level', alt: 'Close-up of scrubber tick marks and playhead' },
-    ],
-  },
-  {
-    slug: 'easing-playground',
-    title: 'Easing playground',
-    description: 'A small tool for comparing easing curves side by side, the way an editor compares takes.',
-    meta: 'Vue · SVG',
-    preview: 'easing',
-    body: [
-      'Placeholder copy: why comparing two eases side by side (like A/B-ing two takes in an edit bay) beats staring at cubic-bezier numbers.',
-      'Placeholder copy: how the curves are drawn and previewed, and what shipping it taught me about motion tokens.',
-    ],
-    screenshots: [
-      { caption: 'two curves, one motion preview', alt: 'Easing playground comparing two curves' },
     ],
   },
 ]

@@ -40,9 +40,9 @@ defineProps<{
     >
       <line x1="30" y1="100" x2="170" y2="100" class="axis" />
       <line x1="30" y1="100" x2="30" y2="20" class="axis" />
-      <line x1="30" y1="100" x2="58" y2="30" class="handle" />
+      <line x1="30" y1="100" x2="58" y2="30" class="handle is-kaki" />
       <line x1="170" y1="20" x2="120" y2="20" class="handle" />
-      <circle cx="58" cy="30" r="4" class="handle-dot" />
+      <circle cx="58" cy="30" r="4" class="handle-dot is-kaki" />
       <circle cx="120" cy="20" r="4" class="handle-dot" />
       <path d="M 30 100 C 58 30, 120 20, 170 20" class="curve" />
     </svg>
@@ -198,7 +198,7 @@ defineProps<{
   background-color: var(--color-border-default);
 }
 
-/* Easing playground: one curve, its two handles */
+/* kaki: one curve, its two handles (handle 1 owns kaki, handle 2 seiji) */
 .vignette-easing {
   width: min(16rem, 70%);
 }
@@ -216,6 +216,14 @@ defineProps<{
 
 .handle-dot {
   fill: var(--color-secondary-default);
+}
+
+.handle.is-kaki {
+  stroke: var(--color-accent-default);
+}
+
+.handle-dot.is-kaki {
+  fill: var(--color-accent-default);
 }
 
 .curve {
