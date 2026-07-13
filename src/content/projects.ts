@@ -93,7 +93,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'kaki',
-    title: 'kaki: easing playground',
+    title: 'kaki: Easing Playground',
     description: 'An easing playground: grab the curve by its handles, watch a persimmon act it out, copy the CSS.',
     meta: 'Svelte · cubic-bezier()',
     hero: { src: kakiHero, alt: 'The kaki curve editor and stage, with an overshooting curve loaded' },
