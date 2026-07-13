@@ -21,8 +21,8 @@ const { transform, onPointerMove, onPointerLeave } = useCardTilt()
     </header>
 
     <p class="card-bio">
-      Video editor and motion designer turned frontend developer.
-      I build interfaces with the same care as a final cut.
+      I spent years making video move. Now I build interfaces
+      that do, with the same care as a final cut.
     </p>
 
     <footer class="card-links">
