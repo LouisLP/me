@@ -40,20 +40,6 @@ const { theme, toggle } = useTheme()
         </li>
       </ul>
     </nav>
-
-    <p class="status">
-      <!-- Lines ordered left to right so odd/even alternates symmetrically -->
-      <svg class="status-rays" viewBox="0 0 120 40" aria-hidden="true">
-        <line x1="31" y1="36.2" x2="25.2" y2="34.7" />
-        <line x1="37" y1="24.7" x2="27.8" y2="17" />
-        <line x1="47.3" y1="16.8" x2="44.8" y2="11.4" />
-        <line x1="60" y1="14" x2="60" y2="2" />
-        <line x1="72.7" y1="16.8" x2="75.2" y2="11.4" />
-        <line x1="83" y1="24.7" x2="92.2" y2="17" />
-        <line x1="89" y1="36.2" x2="94.8" y2="34.7" />
-      </svg>
-      <span class="status-text">Open to Design Engineer roles</span>
-    </p>
   </div>
 </template>
 
@@ -123,43 +109,6 @@ const { theme, toggle } = useTheme()
   display: flex;
   gap: var(--space-sm);
   align-items: center;
-}
-
-/* Old-timey ad emphasis: rays radiating over the announcement.
-   Scaled down and tucked under the wordmark so it reads as a tagline. */
-.status {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 9.5rem;
-  border: var(--border-width-thin) dashed var(--color-border-default);
-  border-radius: var(--radius-lg);
-  padding-block: var(--space-sm);
-}
-
-.status-rays {
-  width: 4.5rem;
-  margin-bottom: var(--space-2xs);
-  stroke-linecap: round;
-  stroke-width: 2.5;
-}
-
-/* Every second ray switches hue: kaki center fan, seiji between */
-.status-rays line:nth-child(odd) {
-  stroke: var(--color-secondary-default);
-}
-
-.status-rays line:nth-child(even) {
-  stroke: var(--color-accent-default);
-}
-
-.status-text {
-  color: var(--color-text-muted);
-  font-family: var(--font-code);
-  font-size: var(--font-size-xs);
-  letter-spacing: var(--letter-spacing-wide);
-  text-align: center;
-  text-transform: uppercase;
 }
 
 /* A proper control: bordered, round, anchored at the rail's bottom */

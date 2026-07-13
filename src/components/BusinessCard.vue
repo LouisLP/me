@@ -30,11 +30,26 @@ const { index: roleIndex } = useRoleCycle(profile.roles)
       <a :href="profile.github" target="_blank" rel="noopener">github</a>
       <a :href="profile.linkedin" target="_blank" rel="noopener">linkedin</a>
     </footer>
+
+    <p class="status-badge">
+      <!-- Lines ordered left to right so odd/even alternates symmetrically -->
+      <svg class="status-rays" viewBox="0 0 120 40" aria-hidden="true">
+        <line x1="31" y1="36.2" x2="25.2" y2="34.7" />
+        <line x1="37" y1="24.7" x2="27.8" y2="17" />
+        <line x1="47.3" y1="16.8" x2="44.8" y2="11.4" />
+        <line x1="60" y1="14" x2="60" y2="2" />
+        <line x1="72.7" y1="16.8" x2="75.2" y2="11.4" />
+        <line x1="83" y1="24.7" x2="92.2" y2="17" />
+        <line x1="89" y1="36.2" x2="94.8" y2="34.7" />
+      </svg>
+      <span class="status-text">Open to<br>Design Engineer roles</span>
+    </p>
   </div>
 </template>
 
 <style scoped>
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--space-xl);
@@ -96,6 +111,41 @@ const { index: roleIndex } = useRoleCycle(profile.roles)
 .card-links a {
   font-family: var(--font-code);
   font-size: var(--font-size-xs);
+}
+
+/* Old-timey ad emphasis, shrunk to a stamp pinned on the card corner —
+   a detail to notice on second glance, not a headline. */
+.status-badge {
+  position: absolute;
+  top: -0.75rem;
+  right: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 5.5rem;
+  border: var(--border-width-thin) dashed var(--color-border-default);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-surface);
+  padding-block: var(--space-2xs);
+  rotate: -6deg;
+}
+
+.status-rays {
+  width: 2.25rem;
+  margin-bottom: 0.15rem;
+  stroke: var(--color-border-default);
+  stroke-linecap: round;
+  stroke-width: 3;
+}
+
+.status-text {
+  color: var(--color-text-muted);
+  font-family: var(--font-code);
+  font-size: 0.5rem;
+  letter-spacing: var(--letter-spacing-wide);
+  line-height: var(--line-height-tight);
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .role-fade-enter-active,
