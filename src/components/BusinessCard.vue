@@ -22,7 +22,7 @@ const { index: roleIndex } = useRoleCycle(profile.roles)
 
     <p class="card-bio">
       I spent years making video move. Now I build interfaces
-      that do, with the same care as a final cut.
+      that do.
     </p>
 
     <footer class="card-links">
