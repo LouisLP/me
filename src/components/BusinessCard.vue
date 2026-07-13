@@ -1,23 +1,23 @@
 <script setup lang="ts">
 import { useCardTilt } from '@/composables/useCardTilt'
+import { useRoleCycle } from '@/composables/useRoleCycle'
 import { profile } from '@/content/profile'
 
-const { transform, onPointerMove, onPointerLeave } = useCardTilt()
+const { transform } = useCardTilt()
+const { index: roleIndex } = useRoleCycle(profile.roles)
 </script>
 
 <template>
-  <div
-    class="card"
-    @pointermove="onPointerMove"
-    @pointerleave="onPointerLeave"
-  >
+  <div class="card">
     <header class="card-head">
       <p class="card-name">
         {{ profile.name }}<span class="dot">.</span>
       </p>
-      <p class="card-role">
-        {{ profile.role }}
-      </p>
+      <Transition name="role-fade" mode="out-in">
+        <p :key="roleIndex" class="card-role">
+          {{ profile.roles[roleIndex] }}
+        </p>
+      </Transition>
     </header>
 
     <p class="card-bio">
@@ -96,5 +96,29 @@ const { transform, onPointerMove, onPointerLeave } = useCardTilt()
 .card-links a {
   font-family: var(--font-code);
   font-size: var(--font-size-xs);
+}
+
+.role-fade-enter-active,
+.role-fade-leave-active {
+  transition:
+    opacity var(--duration-normal) var(--ease-out),
+    translate var(--duration-normal) var(--ease-out);
+}
+
+.role-fade-enter-from {
+  opacity: 0;
+  translate: 0 0.25em;
+}
+
+.role-fade-leave-to {
+  opacity: 0;
+  translate: 0 -0.25em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .role-fade-enter-active,
+  .role-fade-leave-active {
+    transition: none;
+  }
 }
 </style>
