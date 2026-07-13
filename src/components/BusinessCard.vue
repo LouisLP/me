@@ -21,8 +21,7 @@ const { index: roleIndex } = useRoleCycle(profile.roles)
     </header>
 
     <p class="card-bio">
-      I spent years making video move. Now I build interfaces
-      that do.
+      I spent years making videos move; now I build interfaces that do.
     </p>
 
     <footer class="card-links">
