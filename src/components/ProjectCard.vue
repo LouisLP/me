@@ -1,17 +1,28 @@
 <script setup lang="ts">
+import type { Component } from 'vue'
 import type { Project } from '@/content/projects'
 import IconImage from '~icons/lucide/image'
+import KabukiCover from '@/components/covers/KabukiCover.vue'
+import KakiCover from '@/components/covers/KakiCover.vue'
 
 defineProps<{
   project: Project
 }>()
+
+// Hand-designed cover art for the projects that have one; everything else
+// falls back to a real screenshot, then the placeholder icon.
+const covers: Partial<Record<string, Component>> = {
+  kabuki: KabukiCover,
+  kaki: KakiCover,
+}
 </script>
 
 <template>
   <RouterLink class="card" :to="`/projects/${project.slug}`">
-    <div class="preview">
+    <div class="preview" :data-slug="project.slug">
+      <component :is="covers[project.slug]" v-if="covers[project.slug]" class="cover-art" />
       <img
-        v-if="project.hero"
+        v-else-if="project.hero"
         :src="project.hero.src"
         :alt="project.hero.alt"
         loading="lazy"
@@ -67,6 +78,36 @@ defineProps<{
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Custom cover art is oversized and tilted a touch, like a print dropped
+   onto the card; it settles flat and true on hover. */
+.cover-art {
+  width: 100%;
+  height: 100%;
+  scale: 1.08;
+  transition:
+    rotate var(--duration-normal) var(--ease-out),
+    scale var(--duration-normal) var(--ease-out);
+}
+
+.preview[data-slug='kabuki'] .cover-art {
+  rotate: -2.5deg;
+}
+
+.preview[data-slug='kaki'] .cover-art {
+  rotate: 2deg;
+}
+
+.card:hover .cover-art {
+  rotate: 0deg;
+  scale: 1.02;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-art {
+    transition: none;
+  }
 }
 
 .preview-placeholder {
