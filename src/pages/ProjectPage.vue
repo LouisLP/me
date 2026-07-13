@@ -121,10 +121,6 @@ watchEffect(() => {
   line-height: var(--line-height-relaxed);
 }
 
-.body p:first-child {
-  color: var(--color-text-primary);
-}
-
 .shots {
   display: flex;
   flex-direction: column;

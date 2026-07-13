@@ -25,7 +25,7 @@ import { editingEraPhotos, engineeringEraPhotos } from '@/content/photos'
 }
 
 .bio p {
-  color: var(--color-text-primary);
+  color: var(--color-text-secondary);
   line-height: var(--line-height-relaxed);
 }
 </style>
