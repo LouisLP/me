@@ -21,36 +21,46 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="layout">
-    <header class="rail">
-      <SiteNav :sections="sections" :active-id="activeId" />
-    </header>
+  <div class="page">
+    <section class="hero" aria-label="Introduction">
+      <BusinessCard />
+    </section>
 
-    <main class="content">
-      <section class="hero" aria-label="Introduction">
-        <BusinessCard />
-      </section>
+    <div class="layout">
+      <header class="rail">
+        <SiteNav :sections="sections" :active-id="activeId" />
+      </header>
 
-      <section id="about" class="section">
-        <h2 class="section-title">
-          About
-        </h2>
-        <BioSection />
-      </section>
+      <main class="content">
+        <section id="about" class="section">
+          <h2 class="section-title">
+            About
+          </h2>
+          <BioSection />
+        </section>
 
-      <section id="projects" class="section">
-        <h2 class="section-title">
-          Selected projects
-        </h2>
-        <div class="cards">
-          <ProjectCard v-for="project in projects" :key="project.slug" :project="project" />
-        </div>
-      </section>
-    </main>
+        <section id="projects" class="section">
+          <h2 class="section-title">
+            Selected projects
+          </h2>
+          <div class="cards">
+            <ProjectCard v-for="project in projects" :key="project.slug" :project="project" />
+          </div>
+        </section>
+      </main>
+    </div>
   </div>
 </template>
 
 <style scoped>
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  padding: var(--space-gutter);
+}
+
 .layout {
   display: grid;
   grid-template-columns: 1fr;
