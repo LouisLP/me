@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import BioSection from '@/components/BioSection.vue'
 import BusinessCard from '@/components/BusinessCard.vue'
 import ProjectCard from '@/components/ProjectCard.vue'
+import ScrollCue from '@/components/ScrollCue.vue'
 import SiteNav from '@/components/SiteNav.vue'
+import { useHeroScrollFade } from '@/composables/useHeroScrollFade'
 import { useScrollSpy } from '@/composables/useScrollSpy'
 import { profile } from '@/content/profile'
 import { projects } from '@/content/projects'
@@ -15,6 +17,9 @@ const sections = [
 
 const { activeId } = useScrollSpy(sections.map(section => section.id))
 
+const heroRef = ref<HTMLElement | null>(null)
+const { opacity: scrollCueOpacity } = useHeroScrollFade(heroRef)
+
 onMounted(() => {
   document.title = profile.name
 })
@@ -22,8 +27,9 @@ onMounted(() => {
 
 <template>
   <div class="page">
-    <section class="hero" aria-label="Introduction">
+    <section ref="heroRef" class="hero" aria-label="Introduction">
       <BusinessCard />
+      <ScrollCue :opacity="scrollCueOpacity" />
     </section>
 
     <div class="layout">
@@ -54,6 +60,7 @@ onMounted(() => {
 
 <style scoped>
 .hero {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
