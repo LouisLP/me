@@ -48,15 +48,17 @@
   --color-text-secondary: light-dark(var(--sumi-600), var(--sumi-300));
   --color-text-muted: light-dark(var(--sumi-500), var(--sumi-400));
 
-  /* Kaki stays mid-lightness in both themes, so dark text always wins on it */
-  --color-text-on-accent: var(--sumi-950);
+  /* Dark theme's kaki is darker than light theme's, so the two themes need
+     opposite ink: black wins on the light theme's mid kaki, white wins on
+     the dark theme's deeper kaki */
+  --color-text-on-accent: light-dark(var(--sumi-950), var(--sumi-50));
 
   /* ------------------------------------------------------------------ */
   /* Accent — primary interactive (kaki)                                 */
   /* ------------------------------------------------------------------ */
-  --color-accent-default: light-dark(var(--kaki-600), var(--kaki-500));
-  --color-accent-hover: light-dark(var(--kaki-500), var(--kaki-400));
-  --color-accent-active: light-dark(var(--kaki-700), var(--kaki-600));
+  --color-accent-default: light-dark(var(--kaki-600), var(--kaki-700));
+  --color-accent-hover: light-dark(var(--kaki-500), var(--kaki-600));
+  --color-accent-active: light-dark(var(--kaki-700), var(--kaki-800));
   --color-accent-subtle-bg: light-dark(var(--kaki-50), var(--kaki-950));
   --color-accent-subtle-fg: light-dark(var(--kaki-800), var(--kaki-300));
 
@@ -86,7 +88,7 @@
   /* with sumi ink on it, and a near-black note card that stays dark in  */
   /* both themes                                                         */
   /* ------------------------------------------------------------------ */
-  --color-bg-brand: light-dark(var(--kaki-600), var(--kaki-500));
+  --color-bg-brand: light-dark(var(--kaki-600), var(--kaki-700));
   --color-bg-inverse: var(--sumi-950);
   --color-text-on-inverse: var(--sumi-100);
   --color-text-on-inverse-muted: var(--sumi-400);
