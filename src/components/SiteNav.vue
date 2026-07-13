@@ -1,15 +1,10 @@
 <script setup lang="ts">
-import IconMoon from '~icons/lucide/moon'
-import IconSun from '~icons/lucide/sun'
-import { useTheme } from '@/composables/useTheme'
 import { profile } from '@/content/profile'
 
 defineProps<{
   sections: readonly { id: string, label: string }[]
   activeId: string
 }>()
-
-const { theme, toggle } = useTheme()
 </script>
 
 <template>
@@ -18,15 +13,6 @@ const { theme, toggle } = useTheme()
       <h1 class="wordmark">
         {{ profile.name }}<span class="dot">.</span>
       </h1>
-      <div
-        type="button"
-        class="theme-toggle"
-        :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
-        @click="toggle"
-      >
-        <IconSun v-if="theme === 'dark'" />
-        <IconMoon v-else />
-      </div>
     </div>
 
     <nav aria-label="Sections">
@@ -111,32 +97,9 @@ const { theme, toggle } = useTheme()
   align-items: center;
 }
 
-/* A proper control: bordered, round, anchored at the rail's bottom */
-.theme-toggle {
-  display: grid;
-  align-self: flex-end;
-  width: 2.25rem;
-  height: 2.25rem;
-  margin-top: auto;
-  background: none;
-  color: var(--color-text-muted);
-  cursor: pointer;
-  place-items: center;
-}
-
-.theme-toggle svg {
-  width: 1.1rem;
-  height: 1.1rem;
-}
-
-.theme-toggle:hover {
-  color: var(--color-text-primary);
-}
-
 /* Below the two-column breakpoint the rail is a compact header block */
 @media (max-width: 799px) {
   .rail {
-    position: relative;
     gap: var(--space-md);
   }
 
@@ -147,13 +110,6 @@ const { theme, toggle } = useTheme()
 
   .link::before {
     display: none;
-  }
-
-  /* Keep the header compact: the toggle tucks into the top-right corner */
-  .theme-toggle {
-    position: absolute;
-    top: 0;
-    right: 0;
   }
 }
 </style>

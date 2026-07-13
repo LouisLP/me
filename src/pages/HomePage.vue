@@ -5,6 +5,7 @@ import BusinessCard from '@/components/BusinessCard.vue'
 import ProjectCard from '@/components/ProjectCard.vue'
 import ScrollCue from '@/components/ScrollCue.vue'
 import SiteNav from '@/components/SiteNav.vue'
+import ThemeToggle from '@/components/ThemeToggle.vue'
 import { useHeroScrollFade } from '@/composables/useHeroScrollFade'
 import { useScrollSpy } from '@/composables/useScrollSpy'
 import { profile } from '@/content/profile'
@@ -28,6 +29,7 @@ onMounted(() => {
 <template>
   <div class="page">
     <section ref="heroRef" class="hero" aria-label="Introduction">
+      <ThemeToggle class="hero-theme-toggle" />
       <BusinessCard />
       <ScrollCue :opacity="scrollCueOpacity" />
     </section>
@@ -66,6 +68,12 @@ onMounted(() => {
   justify-content: center;
   min-height: 100dvh;
   padding: var(--space-gutter);
+}
+
+.hero-theme-toggle {
+  position: absolute;
+  top: var(--space-gutter);
+  right: var(--space-gutter);
 }
 
 .layout {
