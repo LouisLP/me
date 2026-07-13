@@ -42,7 +42,7 @@ const { index: roleIndex } = useRoleCycle(profile.roles)
         <line x1="83" y1="24.7" x2="92.2" y2="17" />
         <line x1="89" y1="36.2" x2="94.8" y2="34.7" />
       </svg>
-      <span class="status-text">Open to<br>Design Engineer roles</span>
+      <span class="status-text">Open to Frontend & Design Engineer roles</span>
     </p>
   </div>
 </template>
@@ -127,6 +127,7 @@ const { index: roleIndex } = useRoleCycle(profile.roles)
   border-radius: var(--radius-md);
   background-color: var(--color-bg-surface);
   padding-block: var(--space-2xs);
+  padding-inline: var(--space-2xs);
   rotate: -6deg;
 }
 
@@ -138,10 +139,18 @@ const { index: roleIndex } = useRoleCycle(profile.roles)
   stroke-width: 3;
 }
 
+.status-rays line:nth-child(odd) {
+  stroke: var(--color-secondary-default);
+}
+
+.status-rays line:nth-child(even) {
+  stroke: var(--color-accent-default);
+}
+
 .status-text {
   color: var(--color-text-muted);
   font-family: var(--font-code);
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   letter-spacing: var(--letter-spacing-wide);
   line-height: var(--line-height-tight);
   text-align: center;
