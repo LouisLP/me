@@ -26,8 +26,8 @@ const { index: roleIndex } = useRoleCycle(profile.roles)
 
     <footer class="card-links">
       <a :href="`mailto:${profile.email}`">email</a>
-      <a :href="profile.github" target="_blank" rel="noopener">github</a>
       <a :href="profile.linkedin" target="_blank" rel="noopener">linkedin</a>
+      <a :href="profile.github" target="_blank" rel="noopener">github</a>
     </footer>
 
     <p class="status-badge">
