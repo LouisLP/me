@@ -16,10 +16,8 @@ export const profile = {
   ],
   email: 'louis.lascelles.palys@gmail.com',
   github: 'https://github.com/LouisLP',
-  // TODO: confirm the real LinkedIn slug before deploying
   linkedin: 'https://www.linkedin.com/in/louislp',
   repo: 'https://github.com/LouisLP/me',
-  // TODO: placeholder city — set the real one (label + IANA time zone)
   location: {
     city: 'Berlin',
     timeZone: 'Europe/Berlin',
