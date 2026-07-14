@@ -111,6 +111,8 @@
   --radius-md: 0.5rem;
   --radius-lg: 1rem;
   --radius-full: 9999px;
+  /* Vertical depth of the full-width arch on band edges (hero crown, footer) */
+  --radius-arch: clamp(2rem, 6vw, 3rem);
 
   --border-width-thin: 1px;
   --border-width-thick: 2px;
