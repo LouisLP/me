@@ -7,9 +7,9 @@ export const profile = {
   name: 'Louis LP',
   role: 'Design Engineer',
   roles: [
-    'Design Engineer',
     'Software Engineer',
     'Frontend Developer',
+    'Design Engineer',
     'Full Stack Developer',
     'Motion Designer',
     'Video Editor',
