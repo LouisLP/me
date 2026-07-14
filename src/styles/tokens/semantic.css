@@ -94,6 +94,7 @@
   --color-text-on-inverse-muted: var(--sumi-400);
   --color-border-on-inverse: var(--sumi-700);
   --color-accent-on-inverse: var(--kaki-300);
+  --color-secondary-on-inverse: var(--seiji-300);
 
   /* ------------------------------------------------------------------ */
   /* Typography roles                                                    */

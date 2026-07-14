@@ -7,8 +7,10 @@ interface RaySet {
   frames: [Line[], Line[], Line[]]
 }
 
-const { variant = 'stamp' } = defineProps<{
+const { variant = 'stamp', inverse = false } = defineProps<{
   variant?: keyof typeof VARIANTS
+  /** Color the rays for the ink-dark inverse surface (the footer note card) */
+  inverse?: boolean
 }>()
 
 /* Lines are ordered top-to-bottom / left-to-right within each frame so the
@@ -79,6 +81,32 @@ const VARIANTS = {
       ],
     ],
   },
+  /* Comic emphasis ping beside a heading — four short scattered ticks
+     fanning up-right from an implied origin at the bottom left. Mirror
+     with `scale: -1 1` to fan up-left. */
+  spark: {
+    viewBox: '0 0 60 60',
+    frames: [
+      [
+        [7, 36, 5, 16],
+        [13, 33, 17, 24],
+        [20, 39, 28, 27],
+        [27, 47, 48, 39],
+      ],
+      [
+        [7.8, 35, 6, 14.5],
+        [12.4, 33.8, 16, 25.2],
+        [20.6, 38, 29.5, 26.2],
+        [26.5, 47.8, 46.5, 40.2],
+      ],
+      [
+        [6.4, 36.8, 4.2, 17.6],
+        [13.6, 32.4, 18, 23.2],
+        [19.4, 40, 27, 28],
+        [27.8, 46.2, 49.2, 38.2],
+      ],
+    ],
+  },
 } satisfies Record<string, RaySet>
 </script>
 
@@ -89,7 +117,12 @@ const VARIANTS = {
     "line boil", so the mark reads as drawn rather than rendered.
     Size and orientation are the consumer's job (width/rotate/scale on root).
   -->
-  <svg class="rays" :viewBox="VARIANTS[variant].viewBox" aria-hidden="true">
+  <svg
+    class="rays"
+    :class="{ 'is-inverse': inverse }"
+    :viewBox="VARIANTS[variant].viewBox"
+    aria-hidden="true"
+  >
     <g v-for="(frame, i) in VARIANTS[variant].frames" :key="i" class="frame">
       <line
         v-for="([x1, y1, x2, y2], j) in frame"
@@ -117,6 +150,14 @@ const VARIANTS = {
 
 .rays line:nth-child(even) {
   stroke: var(--color-accent-default);
+}
+
+.rays.is-inverse line:nth-child(odd) {
+  stroke: var(--color-secondary-on-inverse);
+}
+
+.rays.is-inverse line:nth-child(even) {
+  stroke: var(--color-accent-on-inverse);
 }
 
 /* One frame at a time; each holds for a third of the cycle */

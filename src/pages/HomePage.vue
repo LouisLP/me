@@ -5,6 +5,7 @@ import BusinessCard from '@/components/BusinessCard.vue'
 import ProjectCard from '@/components/ProjectCard.vue'
 import ScrollCue from '@/components/ScrollCue.vue'
 import SiteNav from '@/components/SiteNav.vue'
+import StarburstRays from '@/components/StarburstRays.vue'
 import ThemeToggle from '@/components/ThemeToggle.vue'
 import { useHeroScrollFade } from '@/composables/useHeroScrollFade'
 import { useScrollSpy } from '@/composables/useScrollSpy'
@@ -42,6 +43,7 @@ onMounted(() => {
       <main class="content">
         <section id="about" class="section">
           <h2 class="section-title">
+            <StarburstRays class="title-spark is-leading" variant="spark" />
             About
           </h2>
           <BioSection />
@@ -49,7 +51,7 @@ onMounted(() => {
 
         <section id="projects" class="section">
           <h2 class="section-title">
-            Selected projects
+            Selected projects<StarburstRays class="title-spark is-trailing" variant="spark" />
           </h2>
           <div class="cards">
             <ProjectCard v-for="project in projects" :key="project.slug" :project="project" />
@@ -113,9 +115,34 @@ onMounted(() => {
 }
 
 .section-title {
+  position: relative;
   margin-bottom: var(--space-lg);
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-semibold);
+}
+
+/* Emphasis sparks placed differently per title so they read hand-stamped,
+   not templated. Descendant selector so display beats the component's own. */
+.section-title .title-spark {
+  display: inline-block;
+  width: 1.75rem;
+}
+
+/* "About": fanning up-left, hovering over the heading's first letter */
+.section-title .title-spark.is-leading {
+  position: absolute;
+  top: -1.6rem;
+  left: -0.9rem;
+  rotate: -8deg;
+  scale: -1 1;
+}
+
+/* "Selected projects": trailing the last word, kicked slightly upward */
+.section-title .title-spark.is-trailing {
+  margin-left: var(--space-xs);
+  rotate: 10deg;
+  translate: 0 -0.5rem;
+  vertical-align: top;
 }
 
 .cards {
