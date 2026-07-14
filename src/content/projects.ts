@@ -113,6 +113,6 @@ export const projects: Project[] = [
       { caption: 'an out-back curve on the stage', alt: 'The kaki curve editor with an overshooting out-back curve, and the persimmon mascot on the stage', src: kakiPlayground },
       { caption: 'the sticker sheet of presets', alt: 'A grid of easing presets drawn as tilted sticker cards', src: kakiStickerSheet },
     ],
-    href: 'https://github.com/LouisLP/kaki',
+    href: 'https://louislp.github.io/kaki/',
   },
 ]

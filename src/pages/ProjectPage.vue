@@ -54,7 +54,7 @@ watchEffect(() => {
       </section>
 
       <p v-if="project.href" class="source">
-        <a :href="project.href" target="_blank" rel="noopener">view source ↗</a>
+        <a :href="project.href" target="_blank" rel="noopener">view deployed project ↗</a>
       </p>
     </template>
 
