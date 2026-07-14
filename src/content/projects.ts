@@ -72,8 +72,9 @@ export const projects: Project[] = [
     meta: 'Vue · Figma · Storybook',
     hero: { src: agileUiStorybook, alt: 'Storybook showing the AgileCheckbox component and its controls' },
     body: [
-      'Agile UI is the component library I built at Agile Robots. Underneath about 75% of the components is Reka UI, a headless/unstyled library. On top sits a design system of our own, with primitive, semantic, and component-level tokens (the same layering as this site, just at company scale).',
-      'The decision that paid off most was keeping Figma and the CSS strictly one-to-one. Every variable in the design file had an exact counterpart in code, which is what made Figma\'s MCP server useful: point it at a design and what came out was a predictable recreation using the exact same tokens.',
+      'Agile UI is the component library I built at Agile Robots. Underneath about 75% of the components is Reka UI, a headless/unstyled library. On top sits a design system of our own, with primitive, semantic, and component-level tokens.',
+      'Components were always built at a "base", "specialized" or "composite" level. They were placed in their own folders containing the Vue component itself, a test file, and a Storybook story. Therefore, test and Storybook coverage was 100%, which made it easy to keep the library in a healthy state.',
+      'The decision that paid off most was keeping Figma and the CSS strictly one-to-one. Every variable in the design file had an exact counterpart in code, which is what made Figma\'s MCP server useful: copy-paste a link to a design into an AI agent harness, and what came out was a predictable recreation using the exact same tokens and base building-blocks.',
       'Storybook became the source of truth, and was a place anyone could browse a component\'s variants and states without digging through source. And because the base was headless, accessibility came built in. Keyboard behavior and semantics arrived with the primitives, and our styling never got a chance to break them.',
     ],
     screenshots: [
@@ -94,7 +95,7 @@ export const projects: Project[] = [
     ],
     screenshots: [
       { caption: 'a real Stripe payment, receipt and all', alt: 'Agile Data Hub order receipt confirming a successful Stripe payment for a robot task dataset', src: agileDataHubOrderReceipt },
-      { caption: 'the receipt component, mid-build', alt: 'OrderReceipt.vue template source for the order receipt component', src: agileDataHubOrderReceiptCode },
+      { caption: 'the receipt component\'s code', alt: 'OrderReceipt.vue template source for the order receipt component', src: agileDataHubOrderReceiptCode },
     ],
   },
   {
