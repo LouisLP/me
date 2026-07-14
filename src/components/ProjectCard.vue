@@ -71,9 +71,20 @@ defineProps<{
   opacity: 0.25;
   rotate: 2deg;
 
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    rotate var(--duration-slow) var(--ease-out),
+    scale var(--duration-slow) var(--ease-out);
+
   /* Must stay >= cos(2deg) + (width / height) * sin(2deg) so the rotated
      corners keep covering the preview at its widest (~3.7:1) aspect */
   scale: 1.15;
+}
+
+.card:hover .preview img {
+  opacity: 0.35;
+  rotate: 1.5deg;
+  scale: 1.12;
 }
 
 .preview-placeholder {
