@@ -17,7 +17,6 @@ import agileDataHubOrderReceiptCode from '@/assets/screenshots/agile-data-hub-or
 import agileDataHubOrderReceipt from '@/assets/screenshots/agile-data-hub-order-receipt.webp'
 import agileUiFolderStructure from '@/assets/screenshots/agile-ui-folder-structure.webp'
 import agileUiStorybook from '@/assets/screenshots/agile-ui-storybook.webp'
-import kabukiHero from '@/assets/screenshots/kabuki-hero.webp'
 import kakiHero from '@/assets/screenshots/kaki-hero.webp'
 import kakiPlayground from '@/assets/screenshots/kaki-playground.webp'
 import kakiStickerSheet from '@/assets/screenshots/kaki-sticker-sheet.webp'
@@ -49,28 +48,28 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  {
-    slug: 'kabuki',
-    title: 'Kabuki',
-    description: 'The design system this site runs on: an oklch token architecture with a palette sampled from a kabuki theatre curtain, themed with light-dark() all the way down.',
-    meta: 'CSS · design tokens',
-    hero: { src: kabukiHero, alt: 'The site hero card in the Kabuki dark theme' },
-    body: [
-      'Kabuki is the token system behind this site. The palette comes from the joshiki-maku theatre curtain: sumi ink for the surfaces, kaki persimmon and seiji pine-green as two co-equal interactive hues rather than the usual accent-plus-status arrangement.',
-      'The architecture is two layers deep. Primitives hold the raw oklch scales; a semantic layer maps them to intent (canvas, surface, accent, success) and wraps every color in light-dark(), so the whole site retheming is one color-scheme declaration. Components are only allowed to touch the semantic layer.',
-      'It started as scaffolding for this portfolio and turned into the thing I most enjoy explaining. That felt like a sign it should be the first project on the page.',
-    ],
-    screenshots: [
-      { caption: 'primitive scales, sampled from the curtain', alt: 'Color scale swatches for sumi, kaki, and seiji' },
-      { caption: 'the same tokens in both themes', alt: 'Side-by-side of the site in dark and light mode' },
-    ],
-    href: 'https://github.com/LouisLP/me',
-  },
+  // {
+  //   slug: 'kabuki',
+  //   title: 'Kabuki',
+  //   description: 'The design system this site runs on: an oklch token architecture with a palette sampled from a kabuki theatre curtain, themed with light-dark() all the way down.',
+  //   meta: 'CSS · design tokens',
+  //   hero: { src: kabukiHero, alt: 'The site hero card in the Kabuki dark theme' },
+  //   body: [
+  //     'Kabuki is the token system behind this site. The palette comes from the joshiki-maku theatre curtain: sumi ink for the surfaces, kaki persimmon and seiji pine-green as two co-equal interactive hues (rather than the usual accent-plus-status arrangement).',
+  //     'The architecture is two layers deep. Primitives hold the raw oklch scales; a semantic layer maps them to intent (canvas, surface, accent, success) and wraps every color in light-dark(), so the whole site retheming is one color-scheme declaration. Components are only allowed to touch the semantic layer.',
+  //     'It started as scaffolding for this portfolio and turned into the thing I enjoy explaining.',
+  //   ],
+  //   screenshots: [
+  //     { caption: 'primitive scales, sampled from the curtain', alt: 'Color scale swatches for sumi, kaki, and seiji' },
+  //     { caption: 'the same tokens in both themes', alt: 'Side-by-side of the site in dark and light mode' },
+  //   ],
+  //   href: 'https://github.com/LouisLP/me',
+  // },
   {
     slug: 'agile-ui',
     title: 'Agile UI',
     description: 'The component library I built at Agile Robots: Reka UI underneath, a design system of our own on top, and a Figma file that matches the CSS one-to-one.',
-    meta: 'Vue · Reka UI · Storybook',
+    meta: 'Vue · Figma · Storybook',
     hero: { src: agileUiStorybook, alt: 'Storybook showing the AgileCheckbox component and its controls' },
     body: [
       'Agile UI is the component library I built at Agile Robots. Underneath about 75% of the components is Reka UI, a headless/unstyled library. On top sits a design system of our own, with primitive, semantic, and component-level tokens (the same layering as this site, just at company scale).',
@@ -114,19 +113,5 @@ export const projects: Project[] = [
       { caption: 'the sticker sheet of presets', alt: 'A grid of easing presets drawn as tilted sticker cards', src: kakiStickerSheet },
     ],
     href: 'https://github.com/LouisLP/kaki',
-  },
-  {
-    slug: 'timeline-scrubber',
-    title: 'Timeline scrubber',
-    description: 'A video-editor-style scrubber for browsing long content in the browser, because some habits are worth keeping.',
-    meta: 'TypeScript · Canvas',
-    body: [
-      'Placeholder copy: what the scrubber is, why an editing-timeline mental model beats a plain progress bar for long content, and what it felt like to rebuild a tool I used daily for years.',
-      'Placeholder copy: the interesting technical bits — canvas rendering, pointer handling, keyboard support, and how the playhead stays interruptible.',
-    ],
-    screenshots: [
-      { caption: 'the scrubber over a long transcript', alt: 'Timeline scrubber component in context' },
-      { caption: 'zoomed to frame level', alt: 'Close-up of scrubber tick marks and playhead' },
-    ],
   },
 ]
