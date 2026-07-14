@@ -124,6 +124,8 @@
   --duration-normal: 250ms;
   --duration-slow: 400ms;
   --duration-ambient: 2400ms;
+  /* Full cycle of a three-frame hand-drawn "line boil" (~3.3 fps) */
+  --duration-boil: 900ms;
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);

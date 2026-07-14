@@ -68,6 +68,8 @@ onMounted(() => {
   justify-content: center;
   min-height: 100dvh;
   padding: var(--space-gutter);
+  /* The card's side rays may poke past the viewport on small screens */
+  overflow-x: clip;
 }
 
 .hero-theme-toggle {

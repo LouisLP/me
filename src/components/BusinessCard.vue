@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import StarburstRays from '@/components/StarburstRays.vue'
 import { useCardTilt } from '@/composables/useCardTilt'
 import { useRoleCycle } from '@/composables/useRoleCycle'
 import { profile } from '@/content/profile'
@@ -31,18 +32,12 @@ const { index: roleIndex } = useRoleCycle(profile.roles)
     </footer>
 
     <p class="status-badge">
-      <!-- Lines ordered left to right so odd/even alternates symmetrically -->
-      <svg class="status-rays" viewBox="0 0 120 40" aria-hidden="true">
-        <line x1="31" y1="36.2" x2="25.2" y2="34.7" />
-        <line x1="37" y1="24.7" x2="27.8" y2="17" />
-        <line x1="47.3" y1="16.8" x2="44.8" y2="11.4" />
-        <line x1="60" y1="14" x2="60" y2="2" />
-        <line x1="72.7" y1="16.8" x2="75.2" y2="11.4" />
-        <line x1="83" y1="24.7" x2="92.2" y2="17" />
-        <line x1="89" y1="36.2" x2="94.8" y2="34.7" />
-      </svg>
+      <StarburstRays class="status-rays" />
       <span class="status-text">Open to Frontend & Design Engineer roles</span>
     </p>
+
+    <StarburstRays class="side-rays is-left" variant="burst" />
+    <StarburstRays class="side-rays is-right" variant="burst" />
   </div>
 </template>
 
@@ -133,17 +128,30 @@ const { index: roleIndex } = useRoleCycle(profile.roles)
 .status-rays {
   width: 2.25rem;
   margin-bottom: 0.15rem;
-  stroke: var(--color-border-default);
-  stroke-linecap: round;
-  stroke-width: 3;
 }
 
-.status-rays line:nth-child(odd) {
-  stroke: var(--color-secondary-default);
+/* Big loose emphasis rays shooting off the card's sides, offset so the two
+   bursts don't mirror each other */
+.side-rays {
+  position: absolute;
+  width: 7rem;
 }
 
-.status-rays line:nth-child(even) {
-  stroke: var(--color-accent-default);
+.side-rays.is-left {
+  top: -6%;
+  right: 100%;
+}
+
+.side-rays.is-right {
+  bottom: -10%;
+  left: 100%;
+  scale: -1 1;
+}
+
+@media (max-width: 799px) {
+  .side-rays {
+    width: 3.5rem;
+  }
 }
 
 .status-text {
