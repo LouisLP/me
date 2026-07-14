@@ -12,6 +12,11 @@
  * a plausible shape to design against until real work is ready to show.
  */
 
+import agileDataHubHero from '@/assets/screenshots/agile-data-hub-hero.webp'
+import agileDataHubOrderReceiptCode from '@/assets/screenshots/agile-data-hub-order-receipt-code.webp'
+import agileDataHubOrderReceipt from '@/assets/screenshots/agile-data-hub-order-receipt.webp'
+import agileUiFolderStructure from '@/assets/screenshots/agile-ui-folder-structure.webp'
+import agileUiStorybook from '@/assets/screenshots/agile-ui-storybook.webp'
 import kabukiHero from '@/assets/screenshots/kabuki-hero.webp'
 import kakiHero from '@/assets/screenshots/kaki-hero.webp'
 import kakiPlayground from '@/assets/screenshots/kaki-playground.webp'
@@ -66,14 +71,15 @@ export const projects: Project[] = [
     title: 'Agile UI',
     description: 'The component library I built at Agile Robots: Reka UI underneath, a design system of our own on top, and a Figma file that matches the CSS one-to-one.',
     meta: 'Vue · Reka UI · Storybook',
+    hero: { src: agileUiStorybook, alt: 'Storybook showing the AgileCheckbox component and its controls' },
     body: [
       'Agile UI is the component library I built at Agile Robots. Underneath about 75% of the components is Reka UI, a headless/unstyled library. On top sits a design system of our own, with primitive, semantic, and component-level tokens (the same layering as this site, just at company scale).',
       'The decision that paid off most was keeping Figma and the CSS strictly one-to-one. Every variable in the design file had an exact counterpart in code, which is what made Figma\'s MCP server useful: point it at a design and what came out was a predictable recreation using the exact same tokens.',
       'Storybook became the source of truth, and was a place anyone could browse a component\'s variants and states without digging through source. And because the base was headless, accessibility came built in. Keyboard behavior and semantics arrived with the primitives, and our styling never got a chance to break them.',
     ],
     screenshots: [
-      { caption: 'browsing button variants in Storybook', alt: 'Storybook showing Agile UI button variants and controls' },
-      { caption: 'tokens in Figma and CSS, one-to-one', alt: 'Figma variables panel beside the matching CSS custom properties' },
+      { caption: 'browsing components in Storybook', alt: 'Storybook showing the AgileCheckbox component, its docs, and its controls', src: agileUiStorybook },
+      { caption: 'one folder per component', alt: 'VS Code file tree of the Agile UI component library, one folder per Agile-prefixed component', src: agileUiFolderStructure },
     ],
   },
   {
@@ -81,14 +87,15 @@ export const projects: Project[] = [
     title: 'Agile Data Hub',
     description: 'A marketplace for robot task datasets: operators browse pre-recorded robot actions and buy the ones their factory needs. From nothing to a working payment system in a month.',
     meta: 'Nuxt · Stripe · Prisma',
+    hero: { src: agileDataHubHero, alt: 'The Agile Data Hub marketing hero, "Datasets for training general-purpose AI models in robotics"' },
     body: [
       'Agile Data Hub is a marketplace for robot task datasets at Agile Robots. Operators browse pre-recorded robot actions and buy the ones their factory needs, the way you\'d license a stock photo.',
       'We built it from scratch as a full-stack product (Nuxt and Tailwind up front, Prisma and BetterAuth underneath, Stripe handling real payments) in about a month. Francis Gurr led the build, and I joined alongside one other designer. The team staying that small is most of why it moved that fast.',
       'A month is a short runway for anything with a payment system in it, but we pulled it off, keeping a consistent design system throughout.',
     ],
     screenshots: [
-      { caption: 'the dataset catalogue', alt: 'Agile Data Hub grid of robot task datasets' },
-      { caption: 'checkout, powered by Stripe', alt: 'Dataset purchase flow with Stripe checkout' },
+      { caption: 'a real Stripe payment, receipt and all', alt: 'Agile Data Hub order receipt confirming a successful Stripe payment for a robot task dataset', src: agileDataHubOrderReceipt },
+      { caption: 'the receipt component, mid-build', alt: 'OrderReceipt.vue template source for the order receipt component', src: agileDataHubOrderReceiptCode },
     ],
   },
   {
