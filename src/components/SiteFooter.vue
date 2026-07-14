@@ -94,9 +94,12 @@ onUnmounted(() => clearInterval(timer))
 
 <style scoped>
 .footer {
+  /* Arched top edge: the band crests at the center and slips away at the sides */
+  border-top-left-radius: 50% var(--radius-arch);
+  border-top-right-radius: 50% var(--radius-arch);
   background-color: var(--color-bg-brand);
   color: var(--color-text-on-accent);
-  padding-block: var(--space-3xl);
+  padding-block: calc(var(--space-3xl) + var(--radius-arch) / 2) var(--space-3xl);
 }
 
 /* Kaki focus rings vanish on the kaki band — use ink there instead */
