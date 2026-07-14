@@ -128,20 +128,20 @@ onMounted(() => {
   width: 1.75rem;
 }
 
-/* "About": fanning up-left, hovering over the heading's first letter */
+/* "About": overflowing left of the text column, nestled against the "A" */
 .section-title .title-spark.is-leading {
   position: absolute;
-  top: -1.6rem;
-  left: -0.9rem;
+  top: -1.2rem;
+  left: -1.4rem;
   rotate: -8deg;
   scale: -1 1;
 }
 
-/* "Selected projects": trailing the last word, kicked slightly upward */
+/* "Selected projects": tucked against the last word's final letter */
 .section-title .title-spark.is-trailing {
-  margin-left: var(--space-xs);
+  margin-left: 0rem;
   rotate: 10deg;
-  translate: 0 -0.5rem;
+  translate: 0 -0.8rem;
   vertical-align: top;
 }
 
