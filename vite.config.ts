@@ -7,6 +7,8 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
+  // Served from https://louislp.github.io/me/ — GitHub Pages project site
+  base: '/me/',
   define: {
     // "Last updated" in the footer — the moment the site was built
     __BUILD_DATE__: JSON.stringify(new Date().toISOString()),
