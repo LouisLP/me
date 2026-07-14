@@ -67,7 +67,7 @@ export const projects: Project[] = [
   // },
   {
     slug: 'agile-ui',
-    title: 'Agile UI',
+    title: 'Component Library: Agile UI',
     description: 'The component library I built at Agile Robots: Reka UI underneath, a design system of our own on top, and a Figma file that matches the CSS one-to-one.',
     meta: 'Vue · Figma · Storybook',
     hero: { src: agileUiStorybook, alt: 'Storybook showing the AgileCheckbox component and its controls' },
@@ -84,7 +84,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'agile-data-hub',
-    title: 'Agile Data Hub',
+    title: 'Shop: Agile Data Hub',
     description: 'A marketplace for robot task datasets: operators browse pre-recorded robot actions and buy the ones their factory needs. From nothing to a working payment system in a month.',
     meta: 'Nuxt · Tailwind · Stripe',
     hero: { src: agileDataHubHero, alt: 'The Agile Data Hub marketing hero, "Datasets for training general-purpose AI models in robotics"' },
@@ -100,7 +100,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'kaki',
-    title: 'kaki: Easing Playground',
+    title: 'Easing Playground: kaki',
     description: 'An easing playground: grab the curve by its handles, watch a persimmon act it out, copy the CSS.',
     meta: 'Svelte · cubic-bezier()',
     hero: { src: kakiHero, alt: 'The kaki curve editor and stage, with an overshooting curve loaded' },
