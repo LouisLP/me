@@ -86,16 +86,16 @@ export const projects: Project[] = [
     slug: 'agile-data-hub',
     title: 'Agile Data Hub',
     description: 'A marketplace for robot task datasets: operators browse pre-recorded robot actions and buy the ones their factory needs. From nothing to a working payment system in a month.',
-    meta: 'Nuxt · Stripe · Prisma',
+    meta: 'Nuxt · Tailwind · Stripe',
     hero: { src: agileDataHubHero, alt: 'The Agile Data Hub marketing hero, "Datasets for training general-purpose AI models in robotics"' },
     body: [
       'Agile Data Hub is a marketplace for robot task datasets at Agile Robots. Operators browse pre-recorded robot actions and buy the ones their factory needs, the way you\'d license a stock photo.',
       'We built it from scratch as a full-stack product (Nuxt and Tailwind up front, Prisma and BetterAuth underneath, Stripe handling real payments) in about a month. Francis Gurr led the build, and I joined alongside one other designer. The team staying that small is most of why it moved that fast.',
-      'A month is a short runway for anything with a payment system in it, but we pulled it off, keeping a consistent design system throughout.',
+      'A month is a short runway for anything with a payment system in it, but we pulled it off, keeping a consistent design system throughout. I can\'t show much of the end-product itself, as it\'s under NDA, but I hope my description can convey the scope.',
     ],
     screenshots: [
       { caption: 'a real Stripe payment, receipt and all', alt: 'Agile Data Hub order receipt confirming a successful Stripe payment for a robot task dataset', src: agileDataHubOrderReceipt },
-      { caption: 'the receipt component\'s code', alt: 'OrderReceipt.vue template source for the order receipt component', src: agileDataHubOrderReceiptCode },
+      { caption: 'part of the receipt component\'s template', alt: 'OrderReceipt.vue template source for the order receipt component', src: agileDataHubOrderReceiptCode },
     ],
   },
   {
