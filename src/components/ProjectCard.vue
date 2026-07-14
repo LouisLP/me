@@ -55,6 +55,7 @@ defineProps<{
 
 .preview {
   display: grid;
+  overflow: hidden;
   height: 13rem;
   border-bottom: var(--border-width-thin) solid var(--color-border-subtle);
   background-color: var(--color-bg-canvas);
@@ -67,6 +68,12 @@ defineProps<{
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0.25;
+  rotate: 2deg;
+
+  /* Must stay >= cos(2deg) + (width / height) * sin(2deg) so the rotated
+     corners keep covering the preview at its widest (~3.7:1) aspect */
+  scale: 1.15;
 }
 
 .preview-placeholder {
