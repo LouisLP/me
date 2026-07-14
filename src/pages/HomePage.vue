@@ -29,7 +29,6 @@ onMounted(() => {
 <template>
   <div class="page">
     <section ref="heroRef" class="hero" aria-label="Introduction">
-      <div class="hero-crown" aria-hidden="true" />
       <ThemeToggle class="hero-theme-toggle" />
       <BusinessCard />
       <ScrollCue :opacity="scrollCueOpacity" />
@@ -69,20 +68,6 @@ onMounted(() => {
   justify-content: center;
   min-height: 100dvh;
   padding: var(--space-gutter);
-}
-
-/*
- * A kaki sliver draped over the top edge — the mirror of the footer's arch.
- * It tapers to nothing at the sides (100% vertical radius), so it stays
- * clear of the theme toggle at the top-right gutter.
- */
-.hero-crown {
-  position: absolute;
-  inset: 0 0 auto;
-  height: var(--radius-arch);
-  border-bottom-left-radius: 50% 100%;
-  border-bottom-right-radius: 50% 100%;
-  background-color: var(--color-bg-brand);
 }
 
 .hero-theme-toggle {
