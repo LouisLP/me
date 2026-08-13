@@ -76,6 +76,7 @@ export const projects: Project[] = [
       'Components were always built at a "base", "specialized" or "composite" level. They were placed in their own folders containing the Vue component itself, a test file, and a Storybook story. Therefore, test and Storybook coverage was 100%, which made it easy to keep the library in a healthy state.',
       'The decision that paid off most was keeping Figma and the CSS strictly one-to-one. Every variable in the design file had an exact counterpart in code, which is what made Figma\'s MCP server useful: copy-paste a link to a design into an AI agent harness, and what came out was a predictable recreation using the exact same tokens and base building-blocks.',
       'Storybook became the source of truth, and was a place anyone could browse a component\'s variants and states without digging through source. And because the base was headless, accessibility came built in. Keyboard behavior and semantics arrived with the primitives, and our styling never got a chance to break them.',
+      'Over time, other engineers and designers throughout Agile Robots were enthusiastic to start using the component library, and it quickly caught-on company-wide. Because of this, the library was extracted out of our main monorepo into a standalone npm package, and I added some token sets to match each department\'s design guidelines.',
     ],
     screenshots: [
       { caption: 'browsing components in Storybook', alt: 'Storybook showing the AgileCheckbox component, its docs, and its controls', src: agileUiStorybook },
