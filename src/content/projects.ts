@@ -105,15 +105,13 @@ export const projects: Project[] = [
   {
     slug: 'japanese-colour-combos',
     title: 'Colour Dictionary: Japanese Colour Combos',
-    description: 'A browser for all 348 combinations in Sanzo Wada\'s 1930s colour dictionary, where every combo is also an importable, contrast-safe design system.',
-    meta: 'Vue · Reka UI · npm',
+    description: 'A browser for all 348 combinations in Sanzo Wada\'s 1930s colour dictionary: find one you like and walk away with a full scale and the code for it.',
+    meta: 'Vue · Reka UI · Claude Code',
     hero: { src: colourCombosHero, alt: 'The Colour Combos header with a hanko seal, hue filter chips, and the first rows of combo cards' },
     body: [
-      'Sanzo Wada\'s A Dictionary of Color Combinations is a Japanese book from the 1930s with 348 hand-picked colour combinations in it. Designers love it, but a combo of two to four colours isn\'t a design system. This site is my attempt at closing that gap: browse the combos, click one, and you get a full tonal scale plus the code to use it.',
-      'Every combo is adapted into a semantic design system (canvas, surface, ink, accent and so on) in both light and dark mode. That\'s 696 renderings, and CI checks every single one against WCAG 2.2 AA. The rule from day one was that a combo which can\'t be made legible doesn\'t ship. So far, there are none.',
-      'The hard part was deciding which colour plays which role. I built three assignment algorithms and ran them over the whole catalogue. All three passed AA (the derivation clamps lightness until they do), but they disagreed on 315 of the 348 combos, so contrast wasn\'t what decided it. Fidelity was. The winner keeps the accent at Wada\'s exact lightness in 62% of renderings, and when it does have to move, it only moves lightness, never hue or chroma.',
-      'It\'s also a package on npm. Every combo ships as CSS, Tailwind v4, SCSS, W3C design tokens and typed JS, and the code blocks in the site come from the same functions that build the package, byte for byte. One line (import \'japanese-colour-combos/42.css\') and you have a scale.',
-      'The first version re-themed the whole site every time you clicked a combo. It was clever, but it felt slow, and the site never got to look like itself. So I cut it, along with favourites, five filter groups and a shortcuts dialog, for one dark look with a few Japanese accents: kanji numerals, a hanko seal, and a seigaiha wave behind the header. Every decision along the way is written down in 15 ADRs, if you\'re curious.',
+      'Sanzo Wada\'s A Dictionary of Color Combinations is a Japanese book from the 1930s with 348 hand-picked colour combinations in it. They\'ve aged incredibly well. Pairings like English Red with Cerulian Blue, or Yellow Ocher with Violet, look just as good on a screen today, and they rarely look like anything a palette generator would hand you.',
+      'This site is how I wanted to browse them: one dark page, every combo as a card, and a search and hue filter for when you already know roughly what you\'re after. The look borrows a few Japanese accents (kanji numerals, a hanko seal, a seigaiha wave behind the header) and stops there.',
+      'Where it actually earns its keep is starting a new site. Click a combo and you get an eleven-step scale for each colour, plus code you can paste straight in as CSS, Tailwind, SCSS, design tokens or JS. Every combo is also checked against WCAG AA in light and dark mode, so the palette you grab is one you can actually build with.',
     ],
     screenshots: [
       { caption: 'one combo, eleven steps per colour', alt: 'The details dialog for combo No. 42, Yellow Ocher and Violet, showing raw swatches and three eleven-step tonal ramps', src: colourCombosDialog },
