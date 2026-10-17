@@ -106,7 +106,7 @@ export const projects: Project[] = [
     slug: 'japanese-colour-combos',
     title: 'Colour Dictionary: Japanese Colour Combos',
     description: 'A browser for all 348 combinations in Sanzo Wada\'s 1930s colour dictionary: find one you like and walk away with a full scale and the code for it.',
-    meta: 'Vue · Reka UI · Claude Code',
+    meta: 'Vue · Reka UI · Agentic AI',
     hero: { src: colourCombosHero, alt: 'The Colour Combos header with a hanko seal, hue filter chips, and the first rows of combo cards' },
     body: [
       'Sanzo Wada\'s A Dictionary of Color Combinations is a Japanese book from the 1930s with 348 hand-picked colour combinations in it. They\'ve aged incredibly well. Pairings like English Red with Cerulian Blue, or Yellow Ocher with Violet, look just as good on a screen today, and they rarely look like anything a palette generator would hand you.',
