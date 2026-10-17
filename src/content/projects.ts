@@ -17,6 +17,9 @@ import agileDataHubOrderReceiptCode from '@/assets/screenshots/agile-data-hub-or
 import agileDataHubOrderReceipt from '@/assets/screenshots/agile-data-hub-order-receipt.webp'
 import agileUiFolderStructure from '@/assets/screenshots/agile-ui-folder-structure.webp'
 import agileUiStorybook from '@/assets/screenshots/agile-ui-storybook.webp'
+import colourCombosCode from '@/assets/screenshots/japanese-colour-combos-code.webp'
+import colourCombosDialog from '@/assets/screenshots/japanese-colour-combos-dialog.webp'
+import colourCombosHero from '@/assets/screenshots/japanese-colour-combos-hero.webp'
 import kakiHero from '@/assets/screenshots/kaki-hero.webp'
 import kakiPlayground from '@/assets/screenshots/kaki-playground.webp'
 import kakiStickerSheet from '@/assets/screenshots/kaki-sticker-sheet.webp'
@@ -98,6 +101,23 @@ export const projects: Project[] = [
       { caption: 'a real Stripe payment, receipt and all', alt: 'Agile Data Hub order receipt confirming a successful Stripe payment for a robot task dataset', src: agileDataHubOrderReceipt },
       { caption: 'part of the receipt component\'s template', alt: 'OrderReceipt.vue template source for the order receipt component', src: agileDataHubOrderReceiptCode },
     ],
+  },
+  {
+    slug: 'japanese-colour-combos',
+    title: 'Colour Dictionary: Japanese Colour Combos',
+    description: 'A browser for all 348 combinations in Sanzo Wada\'s 1930s colour dictionary: find one you like and walk away with a full scale and the code for it.',
+    meta: 'Vue · Reka UI · Agentic AI',
+    hero: { src: colourCombosHero, alt: 'The Colour Combos header with a hanko seal, hue filter chips, and the first rows of combo cards' },
+    body: [
+      'Sanzo Wada\'s A Dictionary of Color Combinations is a Japanese book from the 1930s with 348 hand-picked colour combinations in it. They\'ve aged incredibly well. Pairings like English Red with Cerulian Blue, or Yellow Ocher with Violet, look just as good on a screen today, and they rarely look like anything a palette generator would hand you.',
+      'This site is how I wanted to browse them: one dark page, every combo as a card, and a search and hue filter for when you already know roughly what you\'re after. The look borrows a few Japanese accents (kanji numerals, a hanko seal, a seigaiha wave behind the header) and stops there.',
+      'Where it actually earns its keep is starting a new site. Click a combo and you get an eleven-step scale for each colour, plus code you can paste straight in as CSS, Tailwind, SCSS, design tokens or JS. Every combo is also checked against WCAG AA in light and dark mode, so the palette you grab is one you can actually build with.',
+    ],
+    screenshots: [
+      { caption: 'one combo, eleven steps per colour', alt: 'The details dialog for combo No. 42, Yellow Ocher and Violet, showing raw swatches and three eleven-step tonal ramps', src: colourCombosDialog },
+      { caption: 'the same scale as code, in five formats', alt: 'The code section of the dialog with CSS, Tailwind, SCSS, JSON and JS tabs, showing generated CSS custom properties', src: colourCombosCode },
+    ],
+    href: 'https://louislp.github.io/japanese-colour-combos/',
   },
   {
     slug: 'kaki',
