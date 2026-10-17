@@ -17,6 +17,9 @@ import agileDataHubOrderReceiptCode from '@/assets/screenshots/agile-data-hub-or
 import agileDataHubOrderReceipt from '@/assets/screenshots/agile-data-hub-order-receipt.webp'
 import agileUiFolderStructure from '@/assets/screenshots/agile-ui-folder-structure.webp'
 import agileUiStorybook from '@/assets/screenshots/agile-ui-storybook.webp'
+import colourCombosCode from '@/assets/screenshots/japanese-colour-combos-code.webp'
+import colourCombosDialog from '@/assets/screenshots/japanese-colour-combos-dialog.webp'
+import colourCombosHero from '@/assets/screenshots/japanese-colour-combos-hero.webp'
 import kakiHero from '@/assets/screenshots/kaki-hero.webp'
 import kakiPlayground from '@/assets/screenshots/kaki-playground.webp'
 import kakiStickerSheet from '@/assets/screenshots/kaki-sticker-sheet.webp'
@@ -98,6 +101,25 @@ export const projects: Project[] = [
       { caption: 'a real Stripe payment, receipt and all', alt: 'Agile Data Hub order receipt confirming a successful Stripe payment for a robot task dataset', src: agileDataHubOrderReceipt },
       { caption: 'part of the receipt component\'s template', alt: 'OrderReceipt.vue template source for the order receipt component', src: agileDataHubOrderReceiptCode },
     ],
+  },
+  {
+    slug: 'japanese-colour-combos',
+    title: 'Colour Dictionary: Japanese Colour Combos',
+    description: 'A browser for all 348 combinations in Sanzo Wada\'s 1930s colour dictionary, where every combo is also an importable, contrast-safe design system.',
+    meta: 'Vue · Reka UI · npm',
+    hero: { src: colourCombosHero, alt: 'The Colour Combos header with a hanko seal, hue filter chips, and the first rows of combo cards' },
+    body: [
+      'Sanzo Wada\'s A Dictionary of Color Combinations is a Japanese book from the 1930s with 348 hand-picked colour combinations in it. Designers love it, but a combo of two to four colours isn\'t a design system. This site is my attempt at closing that gap: browse the combos, click one, and you get a full tonal scale plus the code to use it.',
+      'Every combo is adapted into a semantic design system (canvas, surface, ink, accent and so on) in both light and dark mode. That\'s 696 renderings, and CI checks every single one against WCAG 2.2 AA. The rule from day one was that a combo which can\'t be made legible doesn\'t ship. So far, there are none.',
+      'The hard part was deciding which colour plays which role. I built three assignment algorithms and ran them over the whole catalogue. All three passed AA (the derivation clamps lightness until they do), but they disagreed on 315 of the 348 combos, so contrast wasn\'t what decided it. Fidelity was. The winner keeps the accent at Wada\'s exact lightness in 62% of renderings, and when it does have to move, it only moves lightness, never hue or chroma.',
+      'It\'s also a package on npm. Every combo ships as CSS, Tailwind v4, SCSS, W3C design tokens and typed JS, and the code blocks in the site come from the same functions that build the package, byte for byte. One line (import \'japanese-colour-combos/42.css\') and you have a scale.',
+      'The first version re-themed the whole site every time you clicked a combo. It was clever, but it felt slow, and the site never got to look like itself. So I cut it, along with favourites, five filter groups and a shortcuts dialog, for one dark look with a few Japanese accents: kanji numerals, a hanko seal, and a seigaiha wave behind the header. Every decision along the way is written down in 15 ADRs, if you\'re curious.',
+    ],
+    screenshots: [
+      { caption: 'one combo, eleven steps per colour', alt: 'The details dialog for combo No. 42, Yellow Ocher and Violet, showing raw swatches and three eleven-step tonal ramps', src: colourCombosDialog },
+      { caption: 'the same scale as code, in five formats', alt: 'The code section of the dialog with CSS, Tailwind, SCSS, JSON and JS tabs, showing generated CSS custom properties', src: colourCombosCode },
+    ],
+    href: 'https://louislp.github.io/japanese-colour-combos/',
   },
   {
     slug: 'kaki',
